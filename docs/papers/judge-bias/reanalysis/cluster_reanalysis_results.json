@@ -1,0 +1,236 @@
+{
+  "neutral": {
+    "sonnet_score": {
+      "n_resp_per_arm": [
+        500,
+        500
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": -0.652,
+      "d_response_level": -0.409,
+      "p_response_level": 1.65e-10,
+      "p_replicate_welch": 0.00244,
+      "p_permutation": 0.003,
+      "ci95_cluster_bootstrap": [
+        -1.028,
+        -0.26
+      ]
+    },
+    "gpt_score": {
+      "n_resp_per_arm": [
+        500,
+        500
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": -0.664,
+      "d_response_level": -0.423,
+      "p_response_level": 3.81e-11,
+      "p_replicate_welch": 0.0029,
+      "p_permutation": 0.0034,
+      "ci95_cluster_bootstrap": [
+        -1.044,
+        -0.264
+      ]
+    },
+    "llama_score": {
+      "n_resp_per_arm": [
+        500,
+        500
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": -0.762,
+      "d_response_level": -0.46,
+      "p_response_level": 8.45e-13,
+      "p_replicate_welch": 0.000725,
+      "p_permutation": 0.0016,
+      "ci95_cluster_bootstrap": [
+        -1.144,
+        -0.364
+      ]
+    },
+    "keyword_net": {
+      "n_resp_per_arm": [
+        500,
+        500
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.37,
+      "d_response_level": 0.204,
+      "p_response_level": 0.0013,
+      "p_replicate_welch": 0.0078,
+      "p_permutation": 0.0065,
+      "ci95_cluster_bootstrap": [
+        0.126,
+        0.626
+      ]
+    }
+  },
+  "mild_adv": {
+    "sonnet_score": {
+      "n_resp_per_arm": [
+        300,
+        300
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.2467,
+      "d_response_level": 0.115,
+      "p_response_level": 0.158,
+      "p_replicate_welch": 0.494,
+      "p_permutation": 0.492,
+      "ci95_cluster_bootstrap": [
+        -0.443,
+        0.92
+      ]
+    },
+    "gpt_score": {
+      "n_resp_per_arm": [
+        300,
+        300
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.35,
+      "d_response_level": 0.19,
+      "p_response_level": 0.0205,
+      "p_replicate_welch": 0.293,
+      "p_permutation": 0.287,
+      "ci95_cluster_bootstrap": [
+        -0.273,
+        0.98
+      ]
+    },
+    "llama_score": {
+      "n_resp_per_arm": [
+        300,
+        300
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.29,
+      "d_response_level": 0.128,
+      "p_response_level": 0.117,
+      "p_replicate_welch": 0.477,
+      "p_permutation": 0.479,
+      "ci95_cluster_bootstrap": [
+        -0.463,
+        1.05
+      ]
+    },
+    "keyword_net": {
+      "n_resp_per_arm": [
+        300,
+        300
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.23,
+      "d_response_level": 0.11,
+      "p_response_level": 0.18,
+      "p_replicate_welch": 0.277,
+      "p_permutation": 0.276,
+      "ci95_cluster_bootstrap": [
+        -0.167,
+        0.62
+      ]
+    }
+  },
+  "strong_adv": {
+    "sonnet_score": {
+      "n_resp_per_arm": [
+        200,
+        200
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.5,
+      "d_response_level": 0.206,
+      "p_response_level": 0.0396,
+      "p_replicate_welch": 0.19,
+      "p_permutation": 0.191,
+      "ci95_cluster_bootstrap": [
+        -0.24,
+        1.205
+      ]
+    },
+    "gpt_score": {
+      "n_resp_per_arm": [
+        200,
+        200
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.06,
+      "d_response_level": 0.03,
+      "p_response_level": 0.766,
+      "p_replicate_welch": 0.847,
+      "p_permutation": 0.853,
+      "ci95_cluster_bootstrap": [
+        -0.54,
+        0.645
+      ]
+    },
+    "llama_score": {
+      "n_resp_per_arm": [
+        200,
+        200
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": -0.085,
+      "d_response_level": -0.035,
+      "p_response_level": 0.728,
+      "p_replicate_welch": 0.823,
+      "p_permutation": 0.824,
+      "ci95_cluster_bootstrap": [
+        -0.82,
+        0.625
+      ]
+    },
+    "keyword_net": {
+      "n_resp_per_arm": [
+        200,
+        200
+      ],
+      "n_reps_per_arm": [
+        20,
+        20
+      ],
+      "delta": 0.25,
+      "d_response_level": 0.109,
+      "p_response_level": 0.275,
+      "p_replicate_welch": 0.501,
+      "p_permutation": 0.511,
+      "ci95_cluster_bootstrap": [
+        -0.43,
+        0.97
+      ]
+    }
+  }
+}
