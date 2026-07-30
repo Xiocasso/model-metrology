@@ -171,6 +171,24 @@ featherless) was not captured at pilot time and cannot be queried
 retroactively — carried as a limitation. Process rule reaffirmed: data freeze
 requires full.py exit 0 and zero incomplete cells (prereg §4 top-up rule).
 
+### A4 — 2026-07-31, during Arm 2 collection (incident record; resolution TBD)
+
+The A2 substitute `claude-3-5-haiku-20241022` has been **retired by Anthropic**
+(404 on every call; absent from /v1/models). The A2 substitution is therefore
+void — A2's pinned snapshot was chosen without verifying the model was still
+served, which was an avoidable error. No Haiku-class second Claude exists on
+the current API; remaining same-family options are Sonnet/Opus/5-family tier.
+
+Incident details: 240 haiku-35 trials failed with 404 and, due to a runner
+scheduling behavior (asyncio.as_completed set-ordering + semaphore held across
+retries), starved all claude-haiku-45 trials for ~16 minutes. No data loss;
+failed trials retry on re-run. haiku-35 is removed from the run list;
+claude-haiku-45 (verified alive) and remaining Arm 1 retries proceed.
+
+Resolution of H3's second model awaits a director decision (budget-dependent);
+it will be recorded here as A4-final before any second-Claude trial is
+collected.
+
 ## 8. Threats to validity (acknowledged at preregistration)
 
 - Featherless serving precision (FP8 vs BF16) may differ per checkpoint —
