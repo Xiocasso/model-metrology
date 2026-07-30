@@ -1,0 +1,847 @@
+{
+  "data_manifest": {
+    "file": "trials.jsonl",
+    "sha256": "6683d75d2375739c16c3a7e1f27adba94fcfe148c1413fcb19063c07470bab4a",
+    "lines": 13847
+  },
+  "analysis_params": {
+    "n_boot": 2000,
+    "seed": 0,
+    "min_cell": 25,
+    "min_validity": 0.8
+  },
+  "models": {
+    "llama31-8b-base": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.0,
+            1.0,
+            1.0,
+            1.0588,
+            1.2535,
+            1.8209,
+            1.8724,
+            1.6524
+          ],
+          "coupling_curve": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.9968,
+            0.9823,
+            0.9803,
+            1.0
+          ],
+          "r": 0.9027,
+          "ci": [
+            0.8051,
+            0.9759
+          ],
+          "direction": "decouple",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            0.0,
+            1.3438,
+            1.2949,
+            1.1011,
+            1.1301,
+            1.1054,
+            1.0443,
+            1.0053
+          ],
+          "coupling_curve": [
+            0.0,
+            0.8225,
+            0.969,
+            0.9868,
+            0.9795,
+            0.9855,
+            0.9942,
+            1.0
+          ],
+          "r": -0.2619,
+          "ci": [
+            -0.3333,
+            -0.0714
+          ],
+          "direction": "collapse",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      }
+    },
+    "tulu3-8b-sft": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.816,
+            1.5176,
+            1.4746,
+            1.4119,
+            1.6697,
+            1.9327,
+            1.5547,
+            1.4781
+          ],
+          "coupling_curve": [
+            0.9626,
+            0.8265,
+            0.8163,
+            0.7594,
+            0.7149,
+            0.7167,
+            0.6216,
+            0.5197
+          ],
+          "r": 0.0,
+          "ci": [
+            -0.4524,
+            0.2619
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 958,
+          "validity_rate": 0.9979,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.6991,
+            1.8999,
+            2.2595,
+            2.2442,
+            2.1629,
+            2.2704,
+            2.4347,
+            2.218
+          ],
+          "coupling_curve": [
+            0.8343,
+            0.7173,
+            0.5706,
+            0.7439,
+            0.5945,
+            0.5184,
+            0.2186,
+            0.2861
+          ],
+          "r": 0.619,
+          "ci": [
+            0.2857,
+            0.9048
+          ],
+          "direction": "decouple",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            118
+          ]
+        }
+      }
+    },
+    "tulu3-8b-dpo": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.5927,
+            1.3487,
+            1.2304,
+            1.1822,
+            1.2916,
+            1.0941,
+            1.0598,
+            1.0403
+          ],
+          "coupling_curve": [
+            0.979,
+            0.5744,
+            0.6643,
+            0.6849,
+            0.6838,
+            0.455,
+            0.2768,
+            0.8814
+          ],
+          "r": -0.9286,
+          "ci": [
+            -0.9762,
+            -0.8095
+          ],
+          "direction": "collapse",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.5384,
+            2.2773,
+            2.9306,
+            2.3189,
+            2.8896,
+            3.0981,
+            3.3352,
+            3.0086
+          ],
+          "coupling_curve": [
+            0.9137,
+            0.598,
+            0.4321,
+            0.6114,
+            0.5429,
+            0.6626,
+            0.3957,
+            0.5161
+          ],
+          "r": 0.8571,
+          "ci": [
+            0.4524,
+            0.9524
+          ],
+          "direction": "decouple",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      }
+    },
+    "tulu3-8b-final": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.1581,
+            1.4815,
+            1.3785,
+            1.2241,
+            1.4622,
+            1.3397,
+            1.3093,
+            1.1585
+          ],
+          "coupling_curve": [
+            0.9556,
+            0.8985,
+            0.8408,
+            0.8767,
+            0.9804,
+            0.9496,
+            0.5962,
+            0.6581
+          ],
+          "r": -0.1429,
+          "ci": [
+            -0.4048,
+            0.119
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 959,
+          "validity_rate": 0.999,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.6157,
+            2.9084,
+            3.0352,
+            2.784,
+            2.8249,
+            2.4828,
+            2.4125,
+            2.3921
+          ],
+          "coupling_curve": [
+            0.7893,
+            0.4924,
+            0.4364,
+            0.479,
+            0.5617,
+            0.8325,
+            0.5939,
+            0.6699
+          ],
+          "r": -0.2857,
+          "ci": [
+            -0.3095,
+            0.1429
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            119
+          ]
+        }
+      }
+    },
+    "llama31-8b-instruct": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.395,
+            1.9605,
+            1.5461,
+            1.4553,
+            1.4956,
+            1.2408,
+            1.465,
+            1.4737
+          ],
+          "coupling_curve": [
+            0.9139,
+            0.6999,
+            0.6491,
+            0.6396,
+            0.6433,
+            0.8017,
+            0.6899,
+            0.5794
+          ],
+          "r": -0.1667,
+          "ci": [
+            -0.8333,
+            0.1911
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.2278,
+            1.593,
+            1.4802,
+            1.5578,
+            1.628,
+            1.4317,
+            1.4876,
+            1.249
+          ],
+          "coupling_curve": [
+            0.9728,
+            0.8614,
+            0.9591,
+            0.9565,
+            0.9193,
+            0.9598,
+            0.9142,
+            0.9563
+          ],
+          "r": -0.0476,
+          "ci": [
+            -0.4286,
+            0.2619
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      }
+    },
+    "claude-haiku-45": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.3032,
+            1.5745,
+            1.6092,
+            1.6296,
+            2.1108,
+            1.9962,
+            1.6275,
+            1.8692
+          ],
+          "coupling_curve": [
+            0.7193,
+            0.259,
+            0.2455,
+            0.2758,
+            0.4487,
+            0.3856,
+            0.4579,
+            0.4056
+          ],
+          "r": 0.7143,
+          "ci": [
+            0.4286,
+            0.8095
+          ],
+          "direction": "decouple",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.5665,
+            1.9676,
+            1.8545,
+            1.8909,
+            1.8218,
+            2.3021,
+            1.9263,
+            1.9692
+          ],
+          "coupling_curve": [
+            0.9781,
+            0.3476,
+            0.3163,
+            0.3248,
+            0.3607,
+            0.4947,
+            0.7289,
+            0.6642
+          ],
+          "r": 0.5952,
+          "ci": [
+            -0.0238,
+            0.8571
+          ],
+          "direction": "none",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      }
+    },
+    "claude-sonnet-45": {
+      "A_crisis": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.0,
+            1.2957,
+            1.402,
+            1.3311,
+            1.4725,
+            1.5919,
+            1.7075,
+            1.3042
+          ],
+          "coupling_curve": [
+            1.0,
+            0.7979,
+            0.8422,
+            0.7718,
+            0.7568,
+            0.5488,
+            0.4269,
+            0.4654
+          ],
+          "r": 0.619,
+          "ci": [
+            0.2143,
+            0.8571
+          ],
+          "direction": "decouple",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      },
+      "B_opportunity": {
+        "quality": {
+          "attempted": 960,
+          "valid": 960,
+          "validity_rate": 1.0,
+          "incomplete_cells": [],
+          "excluded": false
+        },
+        "signature": {
+          "stress_levels": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            8,
+            12,
+            16
+          ],
+          "pr_curve": [
+            1.54,
+            1.6102,
+            1.8929,
+            2.2157,
+            1.609,
+            1.5476,
+            1.4689,
+            1.4075
+          ],
+          "coupling_curve": [
+            0.9069,
+            0.7551,
+            0.7454,
+            0.7486,
+            0.8731,
+            0.9034,
+            0.897,
+            0.906
+          ],
+          "r": -0.5476,
+          "ci": [
+            -0.7619,
+            -0.0476
+          ],
+          "direction": "collapse",
+          "n_per_cell": [
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120,
+            120
+          ]
+        }
+      }
+    }
+  },
+  "hypotheses": {
+    "replicated_directions": {
+      "llama31-8b-base": null,
+      "tulu3-8b-sft": null,
+      "tulu3-8b-dpo": null,
+      "tulu3-8b-final": null,
+      "llama31-8b-instruct": null,
+      "claude-haiku-45": null,
+      "claude-sonnet-45": null
+    },
+    "H1_stage_emergence": false,
+    "H2_recipe_over_identity": false,
+    "H3_family_consistency_crossgen": false,
+    "H4_coupling_mechanism": {
+      "pass": false,
+      "opposite_sign_fraction": null,
+      "n_checks": 0
+    },
+    "primary_claim": false
+  }
+}

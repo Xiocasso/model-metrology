@@ -1,0 +1,632 @@
+{
+  "tulu3-8b-sft": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": 0.3214,
+        "ci": [
+          -0.2857,
+          0.6786
+        ],
+        "direction": "none"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": 0.6667,
+          "ci": [
+            0.0476,
+            0.8576
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": 0.6347,
+          "ci": [
+            0.3952,
+            0.8264
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": 0.5476,
+          "ci": [
+            0.119,
+            0.9048
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": 0.1429,
+          "ci": [
+            -0.1429,
+            0.5
+          ],
+          "direction": "none"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": 0.4286,
+        "ci": [
+          -0.0714,
+          0.858
+        ],
+        "direction": "none"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": 0.9286,
+          "ci": [
+            0.4762,
+            0.9762
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": 0.8333,
+          "ci": [
+            0.1667,
+            0.9286
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": 0.5952,
+          "ci": [
+            0.1423,
+            0.881
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": 0.5238,
+          "ci": [
+            0.2381,
+            0.881
+          ],
+          "direction": "decouple"
+        }
+      }
+    }
+  },
+  "tulu3-8b-dpo": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": -0.8929,
+        "ci": [
+          -0.9643,
+          -0.7143
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": -0.9048,
+          "ci": [
+            -0.9286,
+            0.0006
+          ],
+          "direction": "none"
+        },
+        "guardian": {
+          "r": -0.3333,
+          "ci": [
+            -0.619,
+            -0.047
+          ],
+          "direction": "collapse"
+        },
+        "commander": {
+          "r": -0.1429,
+          "ci": [
+            -0.381,
+            -0.0238
+          ],
+          "direction": "collapse"
+        },
+        "diplomat": {
+          "r": -0.0476,
+          "ci": [
+            -0.3904,
+            0.1796
+          ],
+          "direction": "none"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": 0.7857,
+        "ci": [
+          0.1429,
+          0.9286
+        ],
+        "direction": "decouple"
+      },
+      "within_archetype": {
+        "diplomat": {
+          "r": 0.619,
+          "ci": [
+            0.0952,
+            0.9048
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": -0.1429,
+          "ci": [
+            -0.5952,
+            0.2857
+          ],
+          "direction": "none"
+        },
+        "explorer": {
+          "r": 0.3333,
+          "ci": [
+            -0.156,
+            0.7319
+          ],
+          "direction": "none"
+        },
+        "guardian": {
+          "r": 0.5714,
+          "ci": [
+            0.2857,
+            0.9048
+          ],
+          "direction": "decouple"
+        }
+      }
+    }
+  },
+  "llama31-8b-base": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": 0.8829,
+        "ci": [
+          0.7412,
+          0.991
+        ],
+        "direction": "decouple"
+      },
+      "within_archetype": {
+        "diplomat": {
+          "r": 0.994,
+          "ci": [
+            0.7306,
+            0.994
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": 0.7319,
+          "ci": [
+            0.3298,
+            0.9027
+          ],
+          "direction": "decouple"
+        },
+        "explorer": {
+          "r": 0.6469,
+          "ci": [
+            0.5455,
+            0.8539
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": 0.9386,
+          "ci": [
+            0.6819,
+            0.9452
+          ],
+          "direction": "decouple"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": -0.8929,
+        "ci": [
+          -1.0,
+          -0.6071
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "diplomat": {
+          "r": 0.1677,
+          "ci": [
+            0.0238,
+            0.7619
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": 0.7319,
+          "ci": [
+            0.5757,
+            0.8371
+          ],
+          "direction": "decouple"
+        },
+        "explorer": {
+          "r": 0.2515,
+          "ci": [
+            0.2048,
+            0.8051
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": -0.1905,
+          "ci": [
+            -0.2857,
+            0.5123
+          ],
+          "direction": "none"
+        }
+      }
+    }
+  },
+  "tulu3-8b-final": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": -0.7143,
+        "ci": [
+          -0.8571,
+          -0.2143
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "diplomat": {
+          "r": 0.2857,
+          "ci": [
+            0.119,
+            0.548
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": 0.3333,
+          "ci": [
+            -0.0476,
+            0.7381
+          ],
+          "direction": "none"
+        },
+        "explorer": {
+          "r": -0.5714,
+          "ci": [
+            -0.8095,
+            0.2143
+          ],
+          "direction": "none"
+        },
+        "guardian": {
+          "r": -0.0238,
+          "ci": [
+            -0.1667,
+            0.3577
+          ],
+          "direction": "none"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": -0.9286,
+        "ci": [
+          -0.9643,
+          -0.3214
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "guardian": {
+          "r": 0.3571,
+          "ci": [
+            -0.1429,
+            0.6429
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": -0.1667,
+          "ci": [
+            -0.5476,
+            0.1429
+          ],
+          "direction": "none"
+        },
+        "diplomat": {
+          "r": -0.0476,
+          "ci": [
+            -0.2143,
+            0.5476
+          ],
+          "direction": "none"
+        },
+        "explorer": {
+          "r": -0.0714,
+          "ci": [
+            -0.3095,
+            0.3334
+          ],
+          "direction": "none"
+        }
+      }
+    }
+  },
+  "llama31-8b-instruct": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": -0.5714,
+        "ci": [
+          -0.8571,
+          -0.1063
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "guardian": {
+          "r": 0.4286,
+          "ci": [
+            0.1429,
+            0.881
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": 0.0476,
+          "ci": [
+            -0.2381,
+            0.4762
+          ],
+          "direction": "none"
+        },
+        "explorer": {
+          "r": 0.2619,
+          "ci": [
+            -0.1667,
+            0.5238
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": -0.0952,
+          "ci": [
+            -0.2381,
+            0.2619
+          ],
+          "direction": "none"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": -0.5714,
+        "ci": [
+          -0.8929,
+          -0.0357
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "guardian": {
+          "r": 0.5952,
+          "ci": [
+            -0.0476,
+            0.7381
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": 0.5238,
+          "ci": [
+            0.0356,
+            0.7381
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": -0.3571,
+          "ci": [
+            -0.6587,
+            0.0722
+          ],
+          "direction": "none"
+        },
+        "explorer": {
+          "r": -0.0714,
+          "ci": [
+            -0.5667,
+            0.458
+          ],
+          "direction": "none"
+        }
+      }
+    }
+  },
+  "claude-haiku-45": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": 0.5714,
+        "ci": [
+          0.1429,
+          0.7143
+        ],
+        "direction": "decouple"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": 0.2857,
+          "ci": [
+            0.0238,
+            0.6905
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": 0.8571,
+          "ci": [
+            0.6185,
+            0.9762
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": 0.5238,
+          "ci": [
+            0.3327,
+            0.8571
+          ],
+          "direction": "decouple"
+        },
+        "commander": {
+          "r": -0.2143,
+          "ci": [
+            -0.3095,
+            0.119
+          ],
+          "direction": "none"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": 0.3929,
+        "ci": [
+          -0.5357,
+          0.8214
+        ],
+        "direction": "none"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": -0.1667,
+          "ci": [
+            -0.2619,
+            0.2857
+          ],
+          "direction": "none"
+        },
+        "guardian": {
+          "r": -0.119,
+          "ci": [
+            -0.5714,
+            0.3577
+          ],
+          "direction": "none"
+        },
+        "diplomat": {
+          "r": -0.2156,
+          "ci": [
+            -0.3425,
+            0.1559
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": 0.7807,
+          "ci": [
+            0.5855,
+            0.9271
+          ],
+          "direction": "decouple"
+        }
+      }
+    }
+  },
+  "claude-sonnet-45": {
+    "A_crisis": {
+      "exclude_s0": {
+        "r": 0.4286,
+        "ci": [
+          -0.2143,
+          0.7857
+        ],
+        "direction": "none"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": 0.4286,
+          "ci": [
+            0.0952,
+            0.7619
+          ],
+          "direction": "decouple"
+        },
+        "diplomat": {
+          "r": -0.0273,
+          "ci": [
+            -0.5184,
+            0.1091
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": 0.881,
+          "ci": [
+            0.4072,
+            0.9762
+          ],
+          "direction": "decouple"
+        },
+        "guardian": {
+          "r": 0.9222,
+          "ci": [
+            0.672,
+            0.9639
+          ],
+          "direction": "decouple"
+        }
+      }
+    },
+    "B_opportunity": {
+      "exclude_s0": {
+        "r": -0.8571,
+        "ci": [
+          -0.8571,
+          -0.1786
+        ],
+        "direction": "collapse"
+      },
+      "within_archetype": {
+        "explorer": {
+          "r": -0.5144,
+          "ci": [
+            -0.791,
+            -0.3
+          ],
+          "direction": "collapse"
+        },
+        "guardian": {
+          "r": -0.1429,
+          "ci": [
+            -0.3095,
+            0.2149
+          ],
+          "direction": "none"
+        },
+        "diplomat": {
+          "r": -0.0976,
+          "ci": [
+            -0.5455,
+            0.2728
+          ],
+          "direction": "none"
+        },
+        "commander": {
+          "r": -0.2857,
+          "ci": [
+            -0.3095,
+            0.0476
+          ],
+          "direction": "none"
+        }
+      }
+    }
+  }
+}
