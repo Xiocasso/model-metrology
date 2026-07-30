@@ -93,13 +93,16 @@ _SPECS: list[ModelSpec] = [
         notes="Replication of phase-transition-v1 primary model (pinned snapshot id).",
     ),
     ModelSpec(
-        key="claude-sonnet-45",
+        key="claude-haiku-35",
         provider="anthropic",
-        model="claude-sonnet-4-5",
+        model="claude-3-5-haiku-20241022",
         family="claude",
         stage="production",
         api_key_env="ANTHROPIC_API_KEY",
-        notes="Second Claude — within-family consistency test.",
+        notes=(
+            "Second Claude — CROSS-GENERATION family consistency test "
+            "(Amendment A2: replaced Sonnet 4.5 for budget; pinned snapshot)."
+        ),
     ),
     ModelSpec(
         key="gpt-4o-mini",

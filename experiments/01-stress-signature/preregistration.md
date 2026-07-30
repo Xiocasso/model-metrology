@@ -35,8 +35,9 @@ Same base model (Llama 3.1 8B), two documented post-training lineages:
 
 ### Arm 2 — Closed production models (generalization / family consistency)
 
-`claude-haiku-45` (pinned snapshot; replication), `claude-sonnet-45`
-(within-family test), `gpt-4o-mini`, `kimi-k3`.
+`claude-haiku-45` (pinned snapshot; replication), `claude-haiku-35`
+(cross-generation within-family test; see Amendment A2), `gpt-4o-mini`,
+`kimi-k3`.
 
 **Total**: 9 models × 2 scenarios × 960 trials = **17,280 trials**.
 
@@ -120,6 +121,24 @@ Pilot findings and fixes, all made before any full-run trial:
 4. `gpt-4o-mini` and `kimi-k3` are deferred: no API keys available. Arm 2 runs
    with the two Claude models; the OpenAI/Moonshot cells will be added under
    this same protocol if keys are provided later, before data freeze.
+
+### A2 — 2026-07-30, before Arm 2 data collection (Arm 1 in progress)
+
+Budget-driven substitution, decided by the director: `claude-sonnet-45`
+(Sonnet 4.5, ~$11 for its cells) is replaced by `claude-haiku-35`
+(`claude-3-5-haiku-20241022`, ~$3) after checking the live Anthropic balance
+($8.30) against the projected Arm 2 cost (~$15).
+
+Effect on H3: the within-family consistency test becomes a **cross-generation**
+test (Haiku 4.5 vs Haiku 3.5, ~1 year apart). Support criterion unchanged in
+form: both Claude models replicate `decouple` in both scenarios. This is a
+strictly HARDER test than same-generation consistency (pipeline signature must
+survive a generation change); a failure is correspondingly less diagnostic
+(could be generation drift rather than absence of a family signature) — this
+asymmetry will be stated in findings.md if H3 fails. No Arm 2 full-run trials
+had been collected at amendment time; the 6 Sonnet pilot trials in
+pilot.jsonl are retained as pilot data and excluded from analysis (as all
+pilot data already is).
 
 ## 8. Threats to validity (acknowledged at preregistration)
 

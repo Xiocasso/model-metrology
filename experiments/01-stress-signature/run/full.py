@@ -33,7 +33,7 @@ OUTPUT = DATA_DIR / "trials.jsonl"
 
 ARM1 = ["llama31-8b-base", "tulu3-8b-sft", "tulu3-8b-dpo",
         "tulu3-8b-final", "llama31-8b-instruct"]
-ARM2 = ["claude-haiku-45", "claude-sonnet-45", "gpt-4o-mini", "kimi-k3"]
+ARM2 = ["claude-haiku-45", "claude-haiku-35", "gpt-4o-mini", "kimi-k3"]
 SCENARIOS = ["A_crisis", "B_opportunity"]
 
 
