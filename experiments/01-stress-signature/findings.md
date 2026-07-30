@@ -7,7 +7,9 @@ is not backed by a number in results.json.
 **Data**: [POINTER.md](data/POINTER.md) — sha256, counts, freeze timestamp
 **Analysis**: frozen at commit `6932fc8` (before data collection completed)
 **Amendments in effect**: A1 (risk-key alias, instruct repo id, retry policy),
-A2 (Haiku 3.5 replaces Sonnet 4.5; H3 is cross-generation)
+A2+A4 (round trip: Haiku 3.5 substitution voided by provider retirement;
+Sonnet 4.5 restored — H3 is the original same-generation test),
+A3 (power calibration S1; secondary views S2/S3)
 
 ## Confidence legend
 

@@ -33,9 +33,8 @@ OUTPUT = DATA_DIR / "trials.jsonl"
 
 ARM1 = ["llama31-8b-base", "tulu3-8b-sft", "tulu3-8b-dpo",
         "tulu3-8b-final", "llama31-8b-instruct"]
-# claude-haiku-35 removed 2026-07-31: model retired by Anthropic (404),
-# see preregistration Amendment A4. Replacement pending director decision.
-ARM2 = ["claude-haiku-45", "gpt-4o-mini", "kimi-k3"]
+# A4-final: Sonnet 4.5 restored as second Claude (original prereg design).
+ARM2 = ["claude-haiku-45", "claude-sonnet-45", "gpt-4o-mini", "kimi-k3"]
 SCENARIOS = ["A_crisis", "B_opportunity"]
 
 

@@ -185,9 +185,17 @@ retries), starved all claude-haiku-45 trials for ~16 minutes. No data loss;
 failed trials retry on re-run. haiku-35 is removed from the run list;
 claude-haiku-45 (verified alive) and remaining Arm 1 retries proceed.
 
-Resolution of H3's second model awaits a director decision (budget-dependent);
-it will be recorded here as A4-final before any second-Claude trial is
-collected.
+**A4-final (2026-07-31, before any second-Claude trial collected):** the
+director approved a budget top-up (~$12 net) and the second Claude reverts to
+the ORIGINAL preregistered choice, `claude-sonnet-4-5-20250929` (verified
+alive). Net effect of A2+A4: a full round trip back to the original design —
+H3 is again a same-generation family-consistency test with its original
+support criterion (both Claude models replicate `decouple` in both scenarios).
+The A2 asymmetry note (cross-generation) is void. The 6 Sonnet pilot trials
+from the A1 pilot remain excluded as pilot data. One mechanical edit to the
+frozen `analysis/analyze.py`: the `CLAUDE_FAMILY` key list swaps
+`claude-haiku-35` for `claude-sonnet-45`. No criterion, statistic, or
+threshold changes; the edit predates collection of any second-Claude trial.
 
 ## 8. Threats to validity (acknowledged at preregistration)
 

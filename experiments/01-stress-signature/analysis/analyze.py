@@ -43,7 +43,9 @@ RESULTS = Path(__file__).resolve().parents[1] / "analysis" / "results.json"
 SCENARIOS = ["A_crisis", "B_opportunity"]
 TULU_STAGES = ["tulu3-8b-sft", "tulu3-8b-dpo", "tulu3-8b-final"]
 BASE = "llama31-8b-base"
-CLAUDE_FAMILY = ["claude-haiku-45", "claude-haiku-35"]
+# A4-final: second Claude reverted to Sonnet 4.5 (mechanical key change only;
+# made before any second-Claude trial was collected or analyzed)
+CLAUDE_FAMILY = ["claude-haiku-45", "claude-sonnet-45"]
 ALL_MODELS = [BASE, *TULU_STAGES, "llama31-8b-instruct", *CLAUDE_FAMILY]
 
 MIN_PER_ARCHETYPE_CELL = 25  # prereg §4: cell < 25/30 valid -> incomplete
