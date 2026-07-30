@@ -140,6 +140,37 @@ had been collected at amendment time; the 6 Sonnet pilot trials in
 pilot.jsonl are retained as pilot data and excluded from analysis (as all
 pilot data already is).
 
+### A3 — 2026-07-31, pre-committed while blind (collection in progress, no
+### trial analyzed)
+
+Setup review before unblinding surfaced three validity concerns. Responses,
+all committed before any data was seen; primary criteria are UNCHANGED:
+
+1. **Power calibration of the direction classifier (S1).** The CI-based
+   direction criterion had no power analysis behind it. A synthetic
+   calibration at the effect sizes observed in phase-transition-v1
+   (`analysis/secondary_analysis.py --power`, results in
+   `analysis/power_calibration.json`): detection 98–100% on true effects,
+   0% wrong-direction calls, 96% correct rejection on null. The
+   preregistered criterion stands as-is — no amendment to the criteria
+   needed.
+2. **Degenerate stress=0 cell (S2).** At temperature 0 with no failure
+   history, within-archetype inputs at s=0 are identical; input diversity
+   grows with stress (template rotation activates at s≥1). A pre-committed
+   secondary view recomputes all signatures excluding the s=0 cell. If a
+   primary direction call does not survive s=0 exclusion, findings.md must
+   flag it as potentially an input-diversity artifact. (This concern applies
+   equally to phase-transition-v1 and was previously unnoticed.)
+3. **Archetype pooling (S3).** Pooled cells (4 archetypes × 30) mix
+   within-archetype coupling with between-archetype mean separation. A
+   pre-committed exploratory view computes per-archetype signatures
+   (n=30/cell). No criteria attached; reported descriptively.
+
+Also recorded at review: serving precision per open checkpoint (FP8/BF16 on
+featherless) was not captured at pilot time and cannot be queried
+retroactively — carried as a limitation. Process rule reaffirmed: data freeze
+requires full.py exit 0 and zero incomplete cells (prereg §4 top-up rule).
+
 ## 8. Threats to validity (acknowledged at preregistration)
 
 - Featherless serving precision (FP8 vs BF16) may differ per checkpoint —

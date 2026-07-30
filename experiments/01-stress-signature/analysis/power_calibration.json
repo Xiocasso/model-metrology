@@ -1,0 +1,67 @@
+{
+  "claude_A_decouple": {
+    "pr_endpoints": [
+      1.14,
+      1.86
+    ],
+    "expected": "decouple",
+    "calls": {
+      "decouple": 100,
+      "collapse": 0,
+      "none": 0
+    },
+    "detection_rate": 1.0
+  },
+  "claude_B_decouple": {
+    "pr_endpoints": [
+      1.52,
+      2.07
+    ],
+    "expected": "decouple",
+    "calls": {
+      "decouple": 98,
+      "collapse": 0,
+      "none": 2
+    },
+    "detection_rate": 0.98
+  },
+  "llama_A_collapse": {
+    "pr_endpoints": [
+      1.94,
+      1.38
+    ],
+    "expected": "collapse",
+    "calls": {
+      "decouple": 0,
+      "collapse": 99,
+      "none": 1
+    },
+    "detection_rate": 0.99
+  },
+  "llama_B_collapse": {
+    "pr_endpoints": [
+      1.51,
+      1.24
+    ],
+    "expected": "collapse",
+    "calls": {
+      "decouple": 0,
+      "collapse": 99,
+      "none": 1
+    },
+    "detection_rate": 0.99
+  },
+  "null_flat": {
+    "pr_endpoints": [
+      1.55,
+      1.55
+    ],
+    "expected": "none",
+    "calls": {
+      "decouple": 3,
+      "collapse": 1,
+      "none": 96
+    },
+    "detection_rate": 0.96
+  }
+}

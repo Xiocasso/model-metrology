@@ -24,23 +24,15 @@ POINTER = DATA_DIR / "POINTER.md"
 def main() -> int:
     h = hashlib.sha256()
     n_lines = 0
-    ok = Counter()
     with TRIALS.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
-    seen: dict[str, bool] = {}
+    # unique successful trials per model/scenario
+    uniq = Counter()
+    counted: set[str] = set()
     with TRIALS.open(encoding="utf-8") as f:
         for line in f:
             n_lines += 1
-            rec = json.loads(line)
-            if rec.get("decision") is not None:
-                seen[rec["trial_id"]] = True
-                ok[(rec["model_key"], rec["scenario_id"])] += 0  # key presence
-    # unique successful trials per model/scenario
-    uniq = Counter()
-    with TRIALS.open(encoding="utf-8") as f:
-        counted = set()
-        for line in f:
             rec = json.loads(line)
             tid = rec["trial_id"]
             if rec.get("decision") is not None and tid not in counted:
