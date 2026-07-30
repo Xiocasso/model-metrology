@@ -126,7 +126,7 @@ async def _run_trial(
     client_factory: Callable[[ModelSpec], ProbeClient],
     semaphore: asyncio.Semaphore,
     temperature: float,
-    max_retries: int = 3,
+    max_retries: int = 5,
 ) -> dict[str, Any]:
     system_prompt, conversation = build_conversation(
         spec.archetype, spec.stress_level, spec.trial_index, scenario
@@ -147,7 +147,10 @@ async def _run_trial(
             except Exception as e:  # noqa: BLE001 — record and retry
                 last_error = f"{type(e).__name__}: {str(e)[:300]}"
                 if attempt < max_retries:
-                    await asyncio.sleep(2**attempt)
+                    # 503s are on-demand cold starts (featherless): wait longer
+                    cold_start = "503" in last_error
+                    delay = min(3 * 2**attempt, 60) if cold_start else 2**attempt
+                    await asyncio.sleep(delay)
         return _trial_record(spec, None, last_error, max_retries)
 
 

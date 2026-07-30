@@ -81,6 +81,24 @@ def test_collect_resume_and_analysis_roundtrip(tmp_path):
     assert all(len(vec) == 4 for v in cells.values() for vec in v)
 
 
+def test_parse_decision_accepts_risk_alias():
+    """Amendment A1: Tulu checkpoints emit "risk" for "risk_estimate"."""
+    from stress_probe.providers import parse_decision
+
+    raw = (
+        '{"action": "investigate", "confidence": 80, "risk": 20, '
+        '"commitment": 60, "urgency": 90}'
+    )
+    d = parse_decision(raw)
+    assert d.risk_estimate == 20
+    # canonical key must win when both are present
+    both = (
+        '{"action": "wait", "confidence": 1, "risk": 99, '
+        '"risk_estimate": 10, "commitment": 2, "urgency": 3}'
+    )
+    assert parse_decision(both).risk_estimate == 10
+
+
 def test_registry_integrity():
     assert len(REGISTRY) >= 9
     for spec in REGISTRY.values():

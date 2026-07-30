@@ -73,7 +73,7 @@ _SPECS: list[ModelSpec] = [
     ModelSpec(
         key="llama31-8b-instruct",
         provider="openai-compat",
-        model="meta-llama/Meta-Llama-3.1-8B-Instruct",
+        model="meta-llama/Llama-3.1-8B-Instruct",
         family="llama31-8b",
         stage="instruct",
         base_url=HF_ROUTER_URL,

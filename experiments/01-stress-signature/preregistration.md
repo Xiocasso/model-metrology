@@ -102,6 +102,25 @@ experiment.
 4. Data freeze (raw JSONL committed via pointer + hash), then analysis.
 5. `findings.md` with confidence tags; `interpretation.md` dated.
 
+## Amendments
+
+### A1 — 2026-07-30, pilot phase (before full-run data collection)
+
+Pilot findings and fixes, all made before any full-run trial:
+
+1. All three Tülu checkpoints deterministically emit the key `"risk"` instead
+   of `"risk_estimate"` on some trials (valid JSON, synonym key, temperature 0).
+   `parse_decision` now maps `risk` → `risk_estimate` when the canonical key is
+   absent. Rationale: value semantics identical; systematic exclusion would
+   bias cell composition against the Tülu lineage. Prompt text unchanged.
+2. `llama31-8b-instruct` model string corrected to `meta-llama/Llama-3.1-8B-Instruct`
+   (Meta renamed the HF repo; old id 400s on featherless).
+3. Retry policy extended for featherless on-demand cold starts (max 5 attempts,
+   503 backoff up to 60 s).
+4. `gpt-4o-mini` and `kimi-k3` are deferred: no API keys available. Arm 2 runs
+   with the two Claude models; the OpenAI/Moonshot cells will be added under
+   this same protocol if keys are provided later, before data freeze.
+
 ## 8. Threats to validity (acknowledged at preregistration)
 
 - Featherless serving precision (FP8 vs BF16) may differ per checkpoint —

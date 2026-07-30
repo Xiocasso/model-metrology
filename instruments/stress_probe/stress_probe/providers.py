@@ -180,11 +180,25 @@ class AnthropicClient(ProbeClient):
         )
 
 
+_KEY_ALIASES = {"risk": "risk_estimate"}
+
+
+def _normalize_keys(obj: dict) -> dict:
+    """Accept documented synonym keys (Amendment A1, Experiment 01 pilot):
+    Tulu-lineage checkpoints deterministically emit "risk" for "risk_estimate".
+    Values are untouched; only the key name is mapped, and only if the
+    canonical key is absent."""
+    for alias, canonical in _KEY_ALIASES.items():
+        if alias in obj and canonical not in obj:
+            obj[canonical] = obj.pop(alias)
+    return obj
+
+
 def parse_decision(raw: str) -> StructuredDecision:
     """Strict parse first, then extract the first {...} block (base-model noise)."""
     raw = raw.strip()
     try:
-        return StructuredDecision(**json.loads(raw))
+        return StructuredDecision(**_normalize_keys(json.loads(raw)))
     except (json.JSONDecodeError, ValidationError):
         pass
 
@@ -193,7 +207,7 @@ def parse_decision(raw: str) -> StructuredDecision:
     if start >= 0 and end > start:
         candidate = raw[start : end + 1]
         try:
-            return StructuredDecision(**json.loads(candidate))
+            return StructuredDecision(**_normalize_keys(json.loads(candidate)))
         except (json.JSONDecodeError, ValidationError) as e:
             raise RuntimeError(
                 f"Could not parse decision from raw response: {raw[:300]}"
