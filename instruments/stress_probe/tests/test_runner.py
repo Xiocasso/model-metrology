@@ -99,6 +99,18 @@ def test_parse_decision_accepts_risk_alias():
     assert parse_decision(both).risk_estimate == 10
 
 
+def test_parse_decision_repairs_corrupted_suffix_keys():
+    """Amendment A5: tulu3-8b-final emits e.g. "risk_estimate://estimate"."""
+    from stress_probe.providers import parse_decision
+
+    raw = (
+        '{"action": "explore", "confidence": 70, '
+        '"risk_estimate://estimate": 60, "commitment": 80, "urgency": 90}'
+    )
+    d = parse_decision(raw)
+    assert d.risk_estimate == 60 and d.action == "explore"
+
+
 def test_registry_integrity():
     assert len(REGISTRY) >= 9
     for spec in REGISTRY.values():

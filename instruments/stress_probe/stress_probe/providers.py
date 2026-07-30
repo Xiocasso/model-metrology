@@ -183,14 +183,27 @@ class AnthropicClient(ProbeClient):
 _KEY_ALIASES = {"risk": "risk_estimate"}
 
 
+_CANONICAL_KEYS = ("action", "confidence", "risk_estimate", "commitment", "urgency")
+
+
 def _normalize_keys(obj: dict) -> dict:
-    """Accept documented synonym keys (Amendment A1, Experiment 01 pilot):
-    Tulu-lineage checkpoints deterministically emit "risk" for "risk_estimate".
-    Values are untouched; only the key name is mapped, and only if the
-    canonical key is absent."""
+    """Accept documented key corruptions. Values are never touched; a key is
+    mapped only when the canonical key is absent.
+
+    - Amendment A1: Tulu-lineage checkpoints emit "risk" for "risk_estimate".
+    - Amendment A5: at high stress, tulu3-8b-final emits corrupted-suffix keys
+      (observed: "risk_estimate://estimate") — map any key that starts with a
+      canonical name to that canonical name."""
     for alias, canonical in _KEY_ALIASES.items():
         if alias in obj and canonical not in obj:
             obj[canonical] = obj.pop(alias)
+    for key in list(obj):
+        if key in _CANONICAL_KEYS:
+            continue
+        for canonical in _CANONICAL_KEYS:
+            if key.startswith(canonical) and canonical not in obj:
+                obj[canonical] = obj.pop(key)
+                break
     return obj
 
 

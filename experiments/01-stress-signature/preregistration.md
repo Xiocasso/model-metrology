@@ -197,6 +197,24 @@ frozen `analysis/analyze.py`: the `CLAUDE_FAMILY` key list swaps
 `claude-haiku-35` for `claude-sonnet-45`. No criterion, statistic, or
 threshold changes; the edit predates collection of any second-Claude trial.
 
+### A5 — 2026-07-31, during collection (before unblinding)
+
+49 Tulu trials (all scenario B, concentrated at high stress on
+`tulu3-8b-final`) fail parsing deterministically: the model emits
+corrupted-suffix keys (verified raw example:
+`"risk_estimate://estimate": 60` — valid JSON, values intact, one key
+corrupted). Four (archetype, s=16) cells of tulu3-8b-final/B fell to 23–24/30,
+breaching the §4 completeness rule, and deterministic corruption cannot be
+"topped up" by retries alone.
+
+Resolution, same class as A1: key normalization extended — any key with a
+canonical-name prefix maps to the canonical key when the canonical key is
+absent; values untouched (`_normalize_keys`, with test). Failing trials
+re-collected under the repaired parser. Two auxiliary notes recorded for
+findings.md: (a) the malformed-output rate is itself stress-correlated for
+tulu3-8b-final (a behavioral observation our schema otherwise discards);
+(b) any trial still unparseable after repair remains excluded per §4.
+
 ## 8. Threats to validity (acknowledged at preregistration)
 
 - Featherless serving precision (FP8 vs BF16) may differ per checkpoint —
