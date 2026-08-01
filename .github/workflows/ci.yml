@@ -17,7 +17,9 @@ jobs:
         run: pip install numpy pydantic httpx pytest ruff
       - name: Lint
         run: ruff check --select E,F,W instruments experiments
-      - name: Calibration tests
+      - name: Calibration tests (stress_probe)
         run: python -m pytest instruments/stress_probe/tests -q
+      - name: Calibration tests (contract_bench)
+        run: python -m pytest instruments/contract_bench/tests -q
       - name: Analysis selftest
         run: python experiments/01-stress-signature/analysis/analyze.py --selftest
