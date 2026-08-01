@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 MOONSHOT_URL = "https://api.moonshot.ai/v1/chat/completions"
 OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
@@ -36,6 +37,26 @@ _SPECS: list[ModelSpec] = [
         stage="production",
         api_key_env="ANTHROPIC_API_KEY",
         notes="Pinned snapshot; model of the original identity-os tool-gating run.",
+    ),
+    ModelSpec(
+        key="deepseek-v4-flash",
+        provider="openai-compat",
+        model="deepseek-v4-flash",
+        family="deepseek",
+        stage="production",
+        base_url=DEEPSEEK_URL,
+        api_key_env="DEEPSEEK_API_KEY",
+        notes="V4 fast tier ($0.14/$0.28 per MTok); verified live 2026-08-01.",
+    ),
+    ModelSpec(
+        key="deepseek-v4-pro",
+        provider="openai-compat",
+        model="deepseek-v4-pro",
+        family="deepseek",
+        stage="production",
+        base_url=DEEPSEEK_URL,
+        api_key_env="DEEPSEEK_API_KEY",
+        notes="V4 flagship ($0.435/$0.87 per MTok); verified live 2026-08-01.",
     ),
     ModelSpec(
         key="gpt-4o-mini",
