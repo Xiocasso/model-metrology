@@ -19,9 +19,9 @@ We report a cautionary case study in LLM-as-judge evaluation. In an end-to-end d
 
 ## 1. Introduction
 
-LLM-as-judge is now the default evaluation instrument for open-ended generation tasks: it is cheap, fast, and correlates reasonably with human preference on many benchmarks [CITE: LLM-as-judge surveys, e.g. Zheng et al. 2023 MT-Bench/Chatbot Arena]. It is also common — arguably the norm — for the judge and the system under evaluation to come from the same provider, either for convenience (one API key, one billing account) or by deliberate choice (the provider's strongest model is assumed to be the best judge).
+LLM-as-judge is now the default evaluation instrument for open-ended generation tasks: it is cheap, fast, and correlates reasonably with human preference on many benchmarks (Zheng et al., 2023). It is also common — arguably the norm — for the judge and the system under evaluation to come from the same provider, either for convenience (one API key, one billing account) or by deliberate choice (the provider's strongest model is assumed to be the best judge).
 
-A growing literature documents that this convenience is not free. LLM judges exhibit *self-preference bias*, scoring their own outputs higher than alternatives of comparable quality [CITE: Panickssery et al. 2024, "LLM evaluators recognize and favor their own generations"], and this preference correlates with *self-recognition* ability — models that can identify their own outputs favor them more [CITE: same line of work]. Related results document family-level effects: judges favor outputs stylistically similar to their own training distribution even when the graded model is a different model from the same lineage [CITE: work on judge family/style bias], alongside position bias, verbosity bias, and rubric-anchoring effects [CITE: judge-bias taxonomies].
+A growing literature documents that this convenience is not free. LLM judges exhibit *self-preference bias*, scoring their own outputs higher than alternatives of comparable quality, and this preference correlates with *self-recognition* ability — models that can identify their own outputs favor them more (Panickssery et al., 2024; Wataoka et al., 2024). Related results probe whether such preference extends beyond the self to stylistically similar outputs, and whether it is ever epistemically justified (Chen et al., 2025; Xu et al., 2025), alongside position bias, verbosity bias, and self-enhancement effects catalogued systematically (Shi et al., 2024; Ye et al., 2024).
 
 Most of this literature quantifies bias on purpose-built comparison sets. What it rarely shows is the *operational* consequence: a concrete case where a same-provider judge, used in good faith in a real experiment, delivered a statistically significant confirmation of the experimenters' pre-specified hypothesis that evaporated the moment independent judges scored the same responses.
 
@@ -38,11 +38,11 @@ We present this as a methodological negative result. We cannot prove the mechani
 
 ## 2. Background and Related Work
 
-**LLM-as-judge.** Rubric-based single-response grading and pairwise preference judging by LLMs are standard practice in evaluation pipelines [CITE: MT-Bench, AlpacaEval, Arena-Hard]. Judge validity is typically established by correlation with human raters on held-out sets, but validity established on one distribution does not transfer to comparisons the validation set never covered — in our case, subtly persona-augmented vs. unaugmented outputs of the same base model under adversarial prompting.
+**LLM-as-judge.** Rubric-based single-response grading and pairwise preference judging by LLMs are standard practice in evaluation pipelines (Zheng et al., 2023). Judge validity is typically established by correlation with human raters on held-out sets, but validity established on one distribution does not transfer to comparisons the validation set never covered — in our case, subtly persona-augmented vs. unaugmented outputs of the same base model under adversarial prompting.
 
-**Self-preference and lineage effects.** [CITE: Panickssery et al. 2024] show LLM evaluators score their own generations higher and that the effect scales with self-recognition accuracy. [CITE: follow-up work] extends this to family-level effects: shared training data, RLHF recipes, and style priors can produce preference for sibling-model outputs without weight sharing. Our setup is precisely this sibling configuration: the judge (Sonnet 4.5) and the agent (Haiku 4.5) are different models, different tiers, and different weights, but the same provider and, plausibly, overlapping training pipelines.
+**Self-preference and lineage effects.** Panickssery et al. (2024) show LLM evaluators score their own generations higher and that the effect scales with self-recognition accuracy; Wataoka et al. (2024) quantify the same bias in the judging setting. Subsequent work asks when self-preference is unjustified versus tracking real quality (Chen et al., 2025) and develops statistical machinery for measuring self-bias against quality-matched controls (Xu et al., 2025). Our setup extends the question to the *sibling* configuration: the judge (Sonnet 4.5) and the agent (Haiku 4.5) are different models, different tiers, and different weights, but the same provider and, plausibly, overlapping training pipelines — a configuration the self-preference literature largely leaves unmeasured.
 
-**Metric–judge dissociation.** Deterministic surface metrics (keyword counts, lexical overlap, embedding similarity) are known to diverge from semantic quality judgments [CITE: classic critiques of BLEU/ROUGE for generation; reward-hacking literature on lexical gaming]. We contribute a clean in-vivo instance where a keyword metric and three independent LLM judges reach opposite conclusions on the same 1,000 responses, each side with p < 0.005.
+**Metric–judge dissociation.** Deterministic surface metrics (keyword counts, lexical overlap, embedding similarity) are known to diverge from semantic quality judgments (Liu et al., 2016), and optimizing or selecting on a countable proxy invites metric gaming (Skalse et al., 2022). We contribute a clean in-vivo instance where a keyword metric and three independent LLM judges reach opposite conclusions on the same 1,000 responses, each side with p < 0.005.
 
 ---
 
@@ -141,7 +141,7 @@ Every effect that was unanimous across judges survives clustering with room to s
 
 ### 5.1 Why borderline adversarial cases are where lineage bias should bite
 
-The localization of the divergence is, in hindsight, predictable. On the neutral phase, responses cluster near the rubric ceiling (unambiguously exploratory) or carry large, legible differences; any competent judge scores them the same way, and lineage priors have no room to matter. The strong-adversarial phase is different in kind: the agent is being explicitly instructed to abandon its persona, and responses mix compliance, resistance, and hedging within 200 tokens. Scoring them requires the judge to weigh *partial* persona retention — precisely the kind of underdetermined judgment where a model's priors about what good, on-persona text looks like become decisive. If those priors were shaped by the same training pipeline that produced the graded model — shared data curation, shared style targets, shared RLHF recipes — the judge will systematically resolve ambiguity in favor of text bearing its home lineage's fingerprints [CITE: self-recognition/self-preference mechanism papers]. The bias does not need to be large: at n = 200 per arm, a lineage-correlated nudge worth ~0.2 standard deviations on ambiguous responses is the difference between p = 0.77 and p = 0.039.
+The localization of the divergence is, in hindsight, predictable. On the neutral phase, responses cluster near the rubric ceiling (unambiguously exploratory) or carry large, legible differences; any competent judge scores them the same way, and lineage priors have no room to matter. The strong-adversarial phase is different in kind: the agent is being explicitly instructed to abandon its persona, and responses mix compliance, resistance, and hedging within 200 tokens. Scoring them requires the judge to weigh *partial* persona retention — precisely the kind of underdetermined judgment where a model's priors about what good, on-persona text looks like become decisive. If those priors were shaped by the same training pipeline that produced the graded model — shared data curation, shared style targets, shared RLHF recipes — the judge will systematically resolve ambiguity in favor of text bearing its home lineage's fingerprints — the mechanism Panickssery et al. (2024) identify for the self-grading case, transposed to siblings. The bias does not need to be large: at n = 200 per arm, a lineage-correlated nudge worth ~0.2 standard deviations on ambiguous responses is the difference between p = 0.77 and p = 0.039.
 
 This suggests a general warning: same-provider judge bias will be *least* visible in aggregate agreement statistics (our r ≈ 0.8 and 88% majority agreement said nothing was wrong) and *most* consequential on exactly the contested, borderline contrasts that hypotheses are about.
 
@@ -186,11 +186,26 @@ All 2,000 agent responses with all four scores per response are archived as JSON
 
 ## References
 
-- [CITE: Panickssery et al. 2024 — LLM evaluators recognize and favor their own generations (self-preference / self-recognition)]
-- [CITE: Zheng et al. 2023 — Judging LLM-as-a-judge with MT-Bench and Chatbot Arena]
-- [CITE: judge-bias taxonomy — position bias, verbosity bias, self-enhancement bias in LLM judges]
-- [CITE: family/style-similarity preference in LLM judges (sibling-model or same-lab bias)]
-- [CITE: critiques of surface-overlap metrics for generation quality (BLEU/ROUGE-era and modern)]
-- [CITE: reward hacking / metric gaming in learned and lexical evaluation metrics]
-- [CITE: preregistration and negative-results practice in ML evaluation]
+- Chen, W.-L., et al. (2025). Do LLM Evaluators Prefer Themselves for a Reason? arXiv:2504.03846.
+- Liu, C.-W., Lowe, R., Serban, I. V., Noseworthy, M., Charlin, L., & Pineau, J. (2016). How NOT To Evaluate Your Dialogue System: An Empirical Study of Unsupervised Evaluation Metrics for Dialogue Response Generation. EMNLP 2016. arXiv:1603.08023.
+- Panickssery, A., Bowman, S. R., & Feng, S. (2024). LLM Evaluators Recognize and Favor Their Own Generations. NeurIPS 2024. arXiv:2404.13076.
+- Shi, L., et al. (2024). Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge. arXiv:2406.07791.
+- Skalse, J., Howe, N., Krasheninnikov, D., & Krueger, D. (2022). Defining and Characterizing Reward Hacking. NeurIPS 2022. arXiv:2209.13007.
+- van Miltenburg, E., van der Lee, C., & Krahmer, E. (2021). Preregistering NLP Research. NAACL 2021. arXiv:2103.06944.
+- Wataoka, K., Takahashi, T., & Ri, R. (2024). Self-Preference Bias in LLM-as-a-Judge. arXiv:2410.21819.
+- Xu, [et al.] (2025). Play Favorites: A Statistical Method to Measure Self-Bias in LLM-as-a-Judge. arXiv:2508.06709.
+- Ye, J., et al. (2024). Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge. arXiv:2410.02736.
+- Zheng, L., et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. NeurIPS 2023 Datasets & Benchmarks. arXiv:2306.05685.
 - The originating experiment is reported in: Xiong, Y. (2026). *Coordination Failures in Multi-Feedback Agent Runtimes* (preprint, §5.11), which describes the agent runtime whose persona/state-narrative augmentation is evaluated here.
+
+<!-- TODO before submission: verify author lists for Shi et al. 2406.07791, Ye et al.
+2410.02736, Chen et al. 2504.03846, Xu et al. 2508.06709 against arXiv; add the
+preregistration citation (van Miltenburg et al. 2021) inline in §5.3 item 5. -->
+
+## Venue plan (not part of the paper)
+
+- Primary target: NeurIPS 2026 workshop cycle — unified submission deadline
+  **2026-08-29 AoE**; best-fit workshop TBD from the accepted-workshops list
+  (evaluation-methodology or LLM-judge themed).
+- arXiv preprint at submission time regardless of venue.
+- Backup: EMNLP 2026 cycle (explicitly welcomes negative findings).
