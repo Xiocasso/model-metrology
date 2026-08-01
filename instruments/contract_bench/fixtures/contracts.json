@@ -1,0 +1,662 @@
+{
+  "meta": {
+    "source_repo": "C:\\Users\\Gebruiker\\OneDrive\\桌面\\identity-os",
+    "source_git_branch": "master",
+    "source_git_head": "603b10e9195bf50d649aa872082f1a003ec1f2b2",
+    "engine_version": "v6.2 (per identity-os CLAUDE.md, 2026-04-08)",
+    "engine_config": "F6Config.personality_os()",
+    "generated_utc": "2026-08-01T14:24:01.485669+00:00",
+    "generator": "instruments/contract_bench/fixtures/dump_fixtures.py",
+    "note": "Baseline contracts only: initialize_test_profile then get_execution_contract, no process() calls."
+  },
+  "profiles": {
+    "Explorer": {
+      "profile_config": {
+        "core_modes": [
+          "exploration",
+          "perception"
+        ],
+        "suppressed_modes": [
+          "order"
+        ],
+        "risk_posture": "seeking",
+        "energy_policy": "balanced",
+        "description": "A bold explorer"
+      },
+      "contract": {
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "dominant_modes": [
+          "perception",
+          "exploration",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "stress_level": "LOW",
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "seeking",
+          "expressiveness": "high",
+          "commitment_threshold": "low"
+        },
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "should_pause": false,
+        "pause_reason": null,
+        "narrative_prompt": "A bold explorer."
+      },
+      "contract_full": {
+        "schema_version": "1.0",
+        "dominant_modes": [
+          "perception",
+          "exploration",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "seeking",
+          "expressiveness": "high",
+          "commitment_threshold": "low"
+        },
+        "recovery_profile": {
+          "preferred_path": "oscillating",
+          "support_required": true,
+          "cooldown_required": false
+        },
+        "control_vector": {
+          "perception": 0.3310344827586207,
+          "exploration": 0.4344827586206896,
+          "order": 0.013793103448275865,
+          "assertion": 0.02758620689655173,
+          "connection": 0.02758620689655173,
+          "identity": 0.16551724137931034,
+          "stress_response": 0.0
+        },
+        "current_stress_level": "LOW",
+        "current_system_state": "baseline",
+        "energy_level": 0.78,
+        "stability_index": 0.5902,
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "drift_level": null,
+        "drift_magnitude": null,
+        "cycle_count": 0,
+        "memory_context": null,
+        "self_model_context": null,
+        "growth_context": null,
+        "narrative_context": null,
+        "identity_profile_context": {
+          "core_modes": [
+            "exploration",
+            "perception"
+          ],
+          "growth_targets": [],
+          "risk_posture": "seeking",
+          "energy_policy": "balanced",
+          "stress_tolerance": "normal",
+          "drift_tolerance": "normal",
+          "has_description": true
+        },
+        "coherence_context": null,
+        "topological_context": {
+          "topological_coherence": 1.0,
+          "topological_beta1": 0
+        },
+        "consciousness_context": {
+          "prediction_error": 0.0,
+          "surprise": 0.0,
+          "workspace_load": 0.0,
+          "attention_focus": null,
+          "episode_count": 0
+        },
+        "emotion_context": {
+          "arousal": 0.3,
+          "valence": 0.2,
+          "dominance": 0.5,
+          "stress_equivalent": "LOW"
+        },
+        "narrative_prompt": "A bold explorer.",
+        "preferred_actions": [],
+        "discouraged_actions": [],
+        "action_personality_alignment": {},
+        "should_pause": false,
+        "should_escalate": false,
+        "max_steps_remaining": null,
+        "pause_reason": null,
+        "escalation_reason": null,
+        "trust_profile": null
+      }
+    },
+    "Guardian": {
+      "profile_config": {
+        "core_modes": [
+          "order",
+          "identity"
+        ],
+        "suppressed_modes": [
+          "exploration"
+        ],
+        "risk_posture": "averse",
+        "energy_policy": "balanced",
+        "description": "A careful guardian"
+      },
+      "contract": {
+        "allowed_actions": [
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "dominant_modes": [
+          "perception",
+          "order",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "stress_level": "LOW",
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "averse",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "should_pause": false,
+        "pause_reason": null,
+        "narrative_prompt": "A careful guardian."
+      },
+      "contract_full": {
+        "schema_version": "1.0",
+        "dominant_modes": [
+          "perception",
+          "order",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "allowed_actions": [
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "averse",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "recovery_profile": {
+          "preferred_path": "oscillating",
+          "support_required": true,
+          "cooldown_required": false
+        },
+        "control_vector": {
+          "perception": 0.14598540145985403,
+          "exploration": 0.029197080291970805,
+          "order": 0.35766423357664234,
+          "assertion": 0.043795620437956206,
+          "connection": 0.029197080291970812,
+          "identity": 0.3941605839416058,
+          "stress_response": 0.0
+        },
+        "current_stress_level": "LOW",
+        "current_system_state": "baseline",
+        "energy_level": 0.78,
+        "stability_index": 0.5911,
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "drift_level": null,
+        "drift_magnitude": null,
+        "cycle_count": 0,
+        "memory_context": null,
+        "self_model_context": null,
+        "growth_context": null,
+        "narrative_context": null,
+        "identity_profile_context": {
+          "core_modes": [
+            "order",
+            "identity"
+          ],
+          "growth_targets": [],
+          "risk_posture": "averse",
+          "energy_policy": "balanced",
+          "stress_tolerance": "normal",
+          "drift_tolerance": "normal",
+          "has_description": true
+        },
+        "coherence_context": null,
+        "topological_context": {
+          "topological_coherence": 1.0,
+          "topological_beta1": 0
+        },
+        "consciousness_context": {
+          "prediction_error": 0.0,
+          "surprise": 0.0,
+          "workspace_load": 0.0,
+          "attention_focus": null,
+          "episode_count": 0
+        },
+        "emotion_context": {
+          "arousal": 0.3,
+          "valence": 0.2,
+          "dominance": 0.5,
+          "stress_equivalent": "LOW"
+        },
+        "narrative_prompt": "A careful guardian.",
+        "preferred_actions": [],
+        "discouraged_actions": [],
+        "action_personality_alignment": {},
+        "should_pause": false,
+        "should_escalate": false,
+        "max_steps_remaining": null,
+        "pause_reason": null,
+        "escalation_reason": null,
+        "trust_profile": null
+      }
+    },
+    "Diplomat": {
+      "profile_config": {
+        "core_modes": [
+          "connection",
+          "perception"
+        ],
+        "suppressed_modes": [],
+        "risk_posture": "moderate",
+        "energy_policy": "balanced",
+        "description": "An empathetic diplomat"
+      },
+      "contract": {
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "dominant_modes": [
+          "perception",
+          "connection",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "stress_level": "LOW",
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "moderate",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "should_pause": false,
+        "pause_reason": null,
+        "narrative_prompt": "An empathetic diplomat."
+      },
+      "contract_full": {
+        "schema_version": "1.0",
+        "dominant_modes": [
+          "perception",
+          "connection",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "moderate",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "recovery_profile": {
+          "preferred_path": "oscillating",
+          "support_required": true,
+          "cooldown_required": false
+        },
+        "control_vector": {
+          "perception": 0.35555555555555557,
+          "exploration": 0.08888888888888889,
+          "order": 0.08888888888888889,
+          "assertion": 0.029629629629629638,
+          "connection": 0.25925925925925924,
+          "identity": 0.17777777777777778,
+          "stress_response": 0.0
+        },
+        "current_stress_level": "LOW",
+        "current_system_state": "baseline",
+        "energy_level": 0.76,
+        "stability_index": 0.5927,
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "drift_level": null,
+        "drift_magnitude": null,
+        "cycle_count": 0,
+        "memory_context": null,
+        "self_model_context": null,
+        "growth_context": null,
+        "narrative_context": null,
+        "identity_profile_context": {
+          "core_modes": [
+            "connection",
+            "perception"
+          ],
+          "growth_targets": [],
+          "risk_posture": "moderate",
+          "energy_policy": "balanced",
+          "stress_tolerance": "normal",
+          "drift_tolerance": "normal",
+          "has_description": true
+        },
+        "coherence_context": null,
+        "topological_context": {
+          "topological_coherence": 1.0,
+          "topological_beta1": 0
+        },
+        "consciousness_context": {
+          "prediction_error": 0.0,
+          "surprise": 0.0,
+          "workspace_load": 0.0,
+          "attention_focus": null,
+          "episode_count": 0
+        },
+        "emotion_context": {
+          "arousal": 0.3,
+          "valence": 0.2,
+          "dominance": 0.5,
+          "stress_equivalent": "LOW"
+        },
+        "narrative_prompt": "An empathetic diplomat.",
+        "preferred_actions": [],
+        "discouraged_actions": [],
+        "action_personality_alignment": {},
+        "should_pause": false,
+        "should_escalate": false,
+        "max_steps_remaining": null,
+        "pause_reason": null,
+        "escalation_reason": null,
+        "trust_profile": null
+      }
+    },
+    "Commander": {
+      "profile_config": {
+        "core_modes": [
+          "assertion",
+          "order"
+        ],
+        "suppressed_modes": [],
+        "risk_posture": "bounded",
+        "energy_policy": "balanced",
+        "description": "A decisive commander"
+      },
+      "contract": {
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "dominant_modes": [
+          "perception",
+          "order",
+          "assertion",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "stress_level": "LOW",
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "bounded",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "should_pause": false,
+        "pause_reason": null,
+        "narrative_prompt": "A decisive commander."
+      },
+      "contract_full": {
+        "schema_version": "1.0",
+        "dominant_modes": [
+          "perception",
+          "order",
+          "assertion",
+          "identity"
+        ],
+        "suppressed_modes": [],
+        "allowed_actions": [
+          "challenge",
+          "clarify",
+          "comfort",
+          "defer",
+          "elaborate",
+          "execute",
+          "explore",
+          "pivot",
+          "question",
+          "stabilize",
+          "suggest",
+          "withdraw"
+        ],
+        "forbidden_actions": [
+          "emotional_manipulation",
+          "identity_override"
+        ],
+        "decision_style": {
+          "tempo": "observant",
+          "risk": "bounded",
+          "expressiveness": "high",
+          "commitment_threshold": "high"
+        },
+        "recovery_profile": {
+          "preferred_path": "oscillating",
+          "support_required": true,
+          "cooldown_required": false
+        },
+        "control_vector": {
+          "perception": 0.14598540145985403,
+          "exploration": 0.08759124087591241,
+          "order": 0.30656934306569344,
+          "assertion": 0.25547445255474455,
+          "connection": 0.029197080291970812,
+          "identity": 0.17518248175182483,
+          "stress_response": 0.0
+        },
+        "current_stress_level": "LOW",
+        "current_system_state": "baseline",
+        "energy_level": 0.76,
+        "stability_index": 0.5931,
+        "hard_locks": {
+          "option_set_max": null,
+          "novelty_rate": null,
+          "noise_filter_min": null,
+          "exec_strictness_min": null,
+          "goal_resistance_min": null,
+          "pivot_threshold_min": null
+        },
+        "drift_level": null,
+        "drift_magnitude": null,
+        "cycle_count": 0,
+        "memory_context": null,
+        "self_model_context": null,
+        "growth_context": null,
+        "narrative_context": null,
+        "identity_profile_context": {
+          "core_modes": [
+            "assertion",
+            "order"
+          ],
+          "growth_targets": [],
+          "risk_posture": "bounded",
+          "energy_policy": "balanced",
+          "stress_tolerance": "normal",
+          "drift_tolerance": "normal",
+          "has_description": true
+        },
+        "coherence_context": null,
+        "topological_context": {
+          "topological_coherence": 1.0,
+          "topological_beta1": 0
+        },
+        "consciousness_context": {
+          "prediction_error": 0.0,
+          "surprise": 0.0,
+          "workspace_load": 0.0,
+          "attention_focus": null,
+          "episode_count": 0
+        },
+        "emotion_context": {
+          "arousal": 0.3,
+          "valence": 0.2,
+          "dominance": 0.5,
+          "stress_equivalent": "LOW"
+        },
+        "narrative_prompt": "A decisive commander.",
+        "preferred_actions": [],
+        "discouraged_actions": [],
+        "action_personality_alignment": {},
+        "should_pause": false,
+        "should_escalate": false,
+        "max_steps_remaining": null,
+        "pause_reason": null,
+        "escalation_reason": null,
+        "trust_profile": null
+      }
+    }
+  }
+}
