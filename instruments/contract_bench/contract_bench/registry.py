@@ -10,10 +10,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-DASHSCOPE_URL = (
-    "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
-)
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MOONSHOT_URL = "https://api.moonshot.ai/v1/chat/completions"
 OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
@@ -61,29 +59,51 @@ _SPECS: list[ModelSpec] = [
         api_key_env="DEEPSEEK_API_KEY",
         notes="V4 flagship ($0.435/$0.87 per MTok); verified live 2026-08-01.",
     ),
-    ModelSpec(
-        key="qwen-turbo",
-        provider="openai-compat",
-        model="qwen-turbo",
-        family="qwen",
-        stage="production",
-        base_url=DASHSCOPE_URL,
-        api_key_env="DASHSCOPE_API_KEY",
-        notes=(
-            "Cheapest tier ($0.05/$0.20). No pinned snapshot offered on the "
-            "intl endpoint — alias may silently update (retirement/drift risk "
-            "noted per Haiku-3.5 incident). Verified live 2026-08-01."
-        ),
-    ),
+    # ------------------------------------------------------------------
+    # OpenRouter-routed Chinese commercial models (prepaid credits, no
+    # auto-debit — replaced direct DashScope entries 2026-08-01 at the
+    # director's request; DashScope key retired). Commercial API tiers have
+    # a single first-party upstream provider, so routing is deterministic.
+    # ------------------------------------------------------------------
     ModelSpec(
         key="qwen-plus",
         provider="openai-compat",
-        model="qwen-plus-2025-12-01",
+        model="qwen/qwen-plus-2025-07-28",
         family="qwen",
         stage="production",
-        base_url=DASHSCOPE_URL,
-        api_key_env="DASHSCOPE_API_KEY",
-        notes="Pinned snapshot ($0.40/$1.20). Verified live 2026-08-01.",
+        base_url=OPENROUTER_URL,
+        api_key_env="OPENROUTER_API_KEY",
+        notes="Pinned snapshot via OpenRouter ($0.26/$0.78).",
+    ),
+    ModelSpec(
+        key="glm-47-flash",
+        provider="openai-compat",
+        model="z-ai/glm-4.7-flash",
+        family="glm",
+        stage="production",
+        base_url=OPENROUTER_URL,
+        api_key_env="OPENROUTER_API_KEY",
+        notes="Cheap tier via OpenRouter ($0.06/$0.40).",
+    ),
+    ModelSpec(
+        key="glm-47",
+        provider="openai-compat",
+        model="z-ai/glm-4.7",
+        family="glm",
+        stage="production",
+        base_url=OPENROUTER_URL,
+        api_key_env="OPENROUTER_API_KEY",
+        notes="Mid tier via OpenRouter ($0.40/$1.75).",
+    ),
+    ModelSpec(
+        key="minimax-m27",
+        provider="openai-compat",
+        model="minimax/minimax-m2.7",
+        family="minimax",
+        stage="production",
+        base_url=OPENROUTER_URL,
+        api_key_env="OPENROUTER_API_KEY",
+        notes="Via OpenRouter ($0.25/$1.00).",
     ),
     ModelSpec(
         key="gpt-4o-mini",
