@@ -1,18 +1,15 @@
-# Stress-Covariance Signatures in LLMs Are Scenario Artifacts: A Preregistered Replication Failure
+# No Stable Stress Signature: A Preregistered Test of Covariance Fingerprints Across a Post-Training Pipeline
 
 **Yunpeng Xiong** — Independent Researcher, Netherlands
 
-**Draft v0 — 2026-08-01. Workshop-note length. Negative result.**
+**Draft v1 — 2026-08-01. Preprint (arXiv route). Negative result.**
 
-## Title options
-
-1. *Stress-Covariance Signatures in LLMs Are Scenario Artifacts: A Preregistered Replication Failure*
-2. *No Stable Stress Signature: A Preregistered Test of Covariance Fingerprints Across a Post-Training Pipeline*
-3. *The Signature That Wasn't: Scenario Dependence and a Degenerate-Cell Artifact in LLM Stress-Covariance Probing*
+<!-- title finalized per review: "scenario artifacts" asserted a universal
+n=2 scenarios cannot support; this title claims exactly what the data show -->>
 
 ## Abstract
 
-A 2026-04 study reported that two RLHF-trained language models carry opposite, cross-scenario-robust "stress signatures" in the covariance structure of their structured decisions: Claude Haiku 4.5's effective dimensionality (Participation Ratio, PR) rose under graded interaction stress in both test scenarios, Llama 3.1 8B Instruct's fell in both, and the Llama base model was direction-unstable. If real, such signatures would be a black-box fingerprint of a model's post-training. We preregistered a follow-up designed to break the original study's central confound (n = 2 post-trained models): the same protocol applied to a staged open pipeline (Llama 3.1 8B base → Tülu 3 SFT → DPO → RLVR-final), Meta's own Llama 3.1 8B Instruct, and two same-generation Claude models (Haiku 4.5, Sonnet 4.5) — 7 models, 2 scenarios, 13,437 valid trials. Under the preregistered CI-backed direction criterion, **zero of seven models showed a cross-scenario replicated direction**. All hypotheses (stage emergence, recipe consistency, family consistency, coupling mechanism) came out null or untestable; the model with the strongest per-scenario effects (Tülu 3 DPO) showed strong *opposite* directions in the two scenarios (r = −0.929 vs +0.857). A synthetic power calibration shows the criterion detects effects of the originally reported sizes with 98–100% probability, ruling out low power as the explanation. A secondary view pre-committed during a blind design review — excluding a degenerate stress = 0 cell in which inputs are identical at temperature 0 — partially restores a collapse signature for exactly the two end-stage post-trained models, implicating an input-diversity confound in the original protocol. We conclude that the stress-covariance signature, as measured by this protocol family, is a property of the (model, scenario) pair, not of the model, and we close this research line. The instrument, preregistration, amendments, and frozen analysis are public.
+A 2026-04 study reported that two RLHF-trained language models carry opposite, cross-scenario-robust "stress signatures" in the covariance structure of their structured decisions: Claude Haiku 4.5's effective dimensionality (Participation Ratio, PR) rose under graded interaction stress in both test scenarios, Llama 3.1 8B Instruct's fell in both, and the Llama base model was direction-unstable. If real, such signatures would be a black-box fingerprint of a model's post-training. We preregistered a follow-up designed to break the original study's central confound (n = 2 post-trained models): the same protocol applied to a staged open pipeline (Llama 3.1 8B base → Tülu 3 SFT → DPO → RLVR-final), Meta's own Llama 3.1 8B Instruct, and two same-generation Claude models (Haiku 4.5, Sonnet 4.5) — 7 models, 2 scenarios, 13,437 valid trials. Under the preregistered CI-backed direction criterion, **zero of seven models showed a cross-scenario replicated direction**. All hypotheses (stage emergence, recipe consistency, family consistency, coupling mechanism) came out null or untestable; the model with the strongest per-scenario effects (Tülu 3 DPO) showed strong *opposite* directions in the two scenarios (r = −0.929 vs +0.857). A synthetic power calibration shows the criterion detects effects of the originally reported sizes with 98–100% probability, ruling out low power as the explanation. A criterion-sensitivity check shows the headline is criterion-dependent in an informative way: under the loosest reading (point-estimate sign agreement, no CI gate) three of seven models show consistent signs, but even that reading leaves the pipeline-stage and family-consistency hypotheses unsupported, and the count returns to zero once any effect-size floor is imposed. A secondary, non-claim-bearing view pre-committed during a blind design review — excluding a degenerate stress = 0 cell in which inputs are identical at temperature 0 — partially restores a collapse signature for two models, a pattern consistent with an input-diversity confound in the original protocol; we flag it for any future protocol revision and explicitly do not claim it. We conclude that this protocol family does not measure a stable model property, and we close the research line. The instrument, preregistration, amendments, and frozen analysis are public.
 
 ---
 
@@ -70,11 +67,13 @@ The preregistration was committed before any API call (repository commit `ebcd62
 
 ### 2.5 Power (S1)
 
-The CI-based direction criterion had no power analysis behind it at preregistration; A3 added one. Synthetic dose-response data at the effect sizes actually reported in 2026-04 (PR endpoints 1.14→1.86, 1.52→2.07 for decouple; 1.94→1.38, 1.51→1.24 for collapse) yields detection rates of 98–100% (per-condition: 100%, 98%, 99%, 99%), **zero** wrong-direction calls in 100 runs per condition, and 96% correct rejection on a true null. If effects of the original size were present, this design would have found them. The null below is not a power failure.
+The CI-based direction criterion had no power analysis behind it at preregistration; A3 added one. Synthetic dose-response data at the effect sizes actually reported in 2026-04 (PR endpoints 1.14→1.86, 1.52→2.07 for decouple; 1.94→1.38, 1.51→1.24 for collapse) yields detection rates of 98–100% (per-condition: 100%, 98%, 99%, 99%), **zero** wrong-direction calls in 100 runs per condition, and 96% correct rejection on a true null. If effects of the original size were present, this design would have found them.
+
+The generator: per stress level, 120 draws from a 4-dimensional Gaussian with uniform off-diagonal correlation ρ chosen (by bisection) so the population PR interpolates linearly between the condition's endpoint values; the null holds ρ constant. This calibration bounds power against *well-behaved* effects only — its null world contains no degenerate, rank-collapsed cells of the kind the real data turned out to contain (§4.2), so the 96% null-rejection figure describes a cleaner world than the one measured. The detection-rate conclusion (the original effect sizes were findable) is unaffected; the null-calibration figure should be read with that asymmetry in mind.
 
 ### 2.6 Data
 
-13,440 trials attempted (7 models × 2 scenarios × 960); 13,437 valid (99.98%); 13,847 raw lines frozen 2026-07-31 under sha256 `6683d75d…bab4a` with a committed pointer. Three truncated outputs were permanently excluded, all from `tulu3-8b-final`, scenario B, stress = 16. Every (archetype × stress) cell retained ≥ 27/30 trials after the A5 repair, against a preregistered floor of 25/30. Per-model JSON validity ≥ 99.8% against a preregistered exclusion threshold of 80%.
+13,440 trials attempted (7 models × 2 scenarios × 960); 13,437 valid (99.98%). The frozen raw file holds 13,847 lines because it is append-only: failed attempts are recorded and superseded by their successful retries, so lines exceed unique trials; the analysis takes the latest record per trial id. Frozen 2026-07-31 under sha256 `6683d75d…bab4a` with a committed pointer. Three truncated outputs were permanently excluded, all from `tulu3-8b-final`, scenario B, stress = 16. Every (archetype × stress) cell retained ≥ 27/30 trials after the A5 repair, against a preregistered floor of 25/30. Per-model JSON validity ≥ 99.8% against a preregistered exclusion threshold of 80%.
 
 ## 3. Results
 
@@ -136,6 +135,18 @@ These are the two *end-stage* post-trained models in the study. All other models
 
 **Auxiliary observation (from A5).** `tulu3-8b-final`'s malformed-output rate is itself stress-correlated: the 49 corrupted-key parse failures concentrated at high stress in scenario B, and all 3 permanently excluded truncated trials sit at s = 16, scenario B. Output-format degradation under stress is a behavioral signal that a strict-JSON schema silently discards. WEAK; noted for future instrument design.
 
+### 3.5 Criterion sensitivity (post hoc)
+
+"Zero of seven" is a dichotomization of graded evidence, so we report how the headline behaves under alternative direction criteria (computed from the frozen per-model statistics; post hoc, review-prompted):
+
+| Criterion | Replicated models |
+|---|---|
+| **A — preregistered**: CI excludes zero, same direction both scenarios | **0 / 7** |
+| B — point-estimate sign agreement, no CI gate | 3 / 7 (`tulu3-8b-final` collapse, `llama31-8b-instruct` collapse, `claude-haiku-45` decouple) |
+| C — CI gate plus \|r\| ≥ 0.3 effect floor | 0 / 7 |
+
+The pattern under B is informative rather than embarrassing: the three sign-consistent models are precisely the two S2-restored end-stage models plus the model whose 2026-04 direction partially replicated. The graded summary is therefore: weak, sign-level consistency exists for three models; nothing survives a confidence-gated criterion; and even under the loosest reading, four of seven models — including the entire staged Tülu comparison the experiment was built around — remain unreplicated, leaving the pipeline-stage (H1/H2) and family-consistency (H3) hypotheses unsupported under every criterion.
+
 ## 4. Discussion
 
 ### 4.1 What a scenario-dependent signature means
@@ -148,7 +159,7 @@ This does not mean the probe measures nothing. Per-scenario directions are often
 
 The s = 0 flaw deserves emphasis because it was invisible for three months and sat in a preregistered, calibrated, frozen protocol. At temperature 0, the stress = 0 cell contains 30 identical inputs per archetype; every higher-stress cell contains rotated failure templates and therefore diverse inputs. The protocol thus confounds the stress dose with an input-diversity dose: the covariance at s = 0 is estimated over responses to (at most) 4 distinct prompts, while at s = 16 it is estimated over far more varied input. Any covariance statistic anchored by that first cell partially measures the diversity gradient, not the stress response. The general lesson for dose-response designs on deterministic models: **check that the variation source is constant across dose levels**. Here it was not, at exactly one dose level, and that level is the anchor of every curve.
 
-The S2 view suggests, but cannot establish, that this artifact contributed to the original finding: with s = 0 removed, the 2026-04 Llama-collapse claim comes back, and so does collapse in the other end-stage post-trained model. The 2026-04 study is thus best described as measuring a mixture of a possible real effect and a protocol artifact, in unknown proportions.
+Two honest complications. First, the degeneracy is not confined to s = 0: a census of the frozen curves finds five cells with PR exactly 0.0 or 1.0 — impossible values for a healthy 120-trial cell — at `llama31-8b-base`/A s = 0, 1, *and* 2, `llama31-8b-base`/B s = 0, and `claude-sonnet-45`/A s = 0. S2, which excludes only s = 0, therefore removes one dose level of what is plausibly a *gradient*: input diversity presumably continues to grow with s as longer failure histories draw more template variation, so even S2 curves may partially track diversity saturation rather than stress. Second, and consequently, the S2 view suggests but cannot establish that the artifact contributed to the original finding: with s = 0 removed, the 2026-04 Llama-collapse claim comes back, and so does collapse in the other end-stage post-trained model — but the residual-gradient concern applies to those restored curves too. The 2026-04 study is best described as measuring a mixture of a possible real effect and a protocol artifact, in unknown proportions; this experiment's own S2 view inherits a diluted version of the same ambiguity.
 
 ### 4.3 Why this failure is legible — and what the S2 lead is not
 
@@ -173,7 +184,7 @@ What survives is the instrument and the audit trail: a calibrated, frozen probe 
 
 ## Reproducibility
 
-All materials are in the public repository (github.com/Xiocasso/model-metrology): preregistration at commit `ebcd621` (before any API call), frozen analysis at `6932fc8` (before unblinding), amendments A1–A5 dated in `experiments/01-stress-signature/preregistration.md`, data pointer with sha256 `6683d75d…bab4a` (13,847 raw lines; frozen 2026-07-31), primary results in `analysis/results.json`, secondary views in `analysis/secondary_results.json`, power calibration in `analysis/power_calibration.json`. The 2026-04 prior study is `identity-os/research/phase-transition-v1/`.
+All materials are in the public repository (github.com/Xiocasso/model-metrology): preregistration at commit `ebcd621` (before any API call), frozen analysis at `6932fc8` (before unblinding), amendments A1–A5 dated in `experiments/01-stress-signature/preregistration.md`, data pointer with sha256 `6683d75d…bab4a` (13,847 raw lines; frozen 2026-07-31), primary results in `analysis/results.json`, secondary views in `analysis/secondary_results.json`, power calibration in `analysis/power_calibration.json`. The 2026-04 prior study (protocol, findings, limitations, data pointer) is mirrored verbatim in this repository at `docs/archives/phase-transition-v1/`, so the replication target is inspectable alongside the replication. The criterion-sensitivity and degeneracy-census script is `analysis/sensitivity.py` (post hoc, review-prompted; outputs committed).
 
 ## References
 

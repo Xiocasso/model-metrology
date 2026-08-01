@@ -1,0 +1,39 @@
+{
+  "degenerate_cells": [
+    [
+      "llama31-8b-base",
+      "A_crisis",
+      0,
+      1.0
+    ],
+    [
+      "llama31-8b-base",
+      "A_crisis",
+      1,
+      1.0
+    ],
+    [
+      "llama31-8b-base",
+      "A_crisis",
+      2,
+      1.0
+    ],
+    [
+      "llama31-8b-base",
+      "B_opportunity",
+      0,
+      0.0
+    ],
+    [
+      "claude-sonnet-45",
+      "A_crisis",
+      0,
+      1.0
+    ]
+  ],
+  "criterion_counts": {
+    "A": 0,
+    "B": 3,
+    "C": 0
+  }
+}
