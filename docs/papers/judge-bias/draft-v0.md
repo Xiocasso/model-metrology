@@ -6,7 +6,7 @@
 2. *p = 0.039, Retracted: Same-Provider Judge Bias in an End-to-End LLM Evaluation*
 3. *Triangulate Before You Trust: A Case Study of Same-Provider LLM-Judge Bias Flipping a Headline Result*
 
-**Authors:** [Yunpeng Xiong], Independent Researcher, Netherlands
+**Authors:** Yunpeng Xiong, Independent Researcher, Netherlands
 **Status:** Draft v0 — workshop submission target (LLM evaluation / negative results track). Not peer-reviewed.
 
 ---
@@ -182,7 +182,7 @@ Neither lesson required new infrastructure to learn — only the willingness to 
 
 ## Reproducibility
 
-All 2,000 agent responses with all four scores per response are archived as JSONL (one record per response: arm, replicate, turn, phase, keyword net, and the three judge scores with rationales). Grading used temperature-0, structured-JSON, arm-blind single-response calls with a verbatim-identical rubric across judges. Judge models: `claude-sonnet-4-5-20250929`, `gpt-4o`, `meta-llama/Llama-3.3-70B-Instruct-Turbo` (via Together.ai). Agent model: `claude-haiku-4-5-20251001` (temperature 0.7, max_tokens 200). Full keyword lists (35 curiosity-domain, 34 order-domain terms) and the per-turn prompt schedule are included in the artifact. The cluster-aware reanalysis script (`reanalysis/cluster_reanalysis.py`: replicate-mean Welch, 10,000-permutation test, 10,000-draw cluster bootstrap, seed 0) and its outputs are part of this repository. [Data and grading scripts to be released at: TBD]
+All 2,000 agent responses with all four scores per response are archived as JSONL (one record per response: arm, replicate, turn, phase, keyword net, and the three judge scores with rationales). Grading used temperature-0, structured-JSON, arm-blind single-response calls with a verbatim-identical rubric across judges. Judge models: `claude-sonnet-4-5-20250929`, `gpt-4o`, `meta-llama/Llama-3.3-70B-Instruct-Turbo` (via Together.ai). Agent model: `claude-haiku-4-5-20251001` (temperature 0.7, max_tokens 200). Full keyword lists (35 curiosity-domain, 34 order-domain terms) and the per-turn prompt schedule are included in the artifact. The cluster-aware reanalysis script (`reanalysis/cluster_reanalysis.py`: replicate-mean Welch, 10,000-permutation test, 10,000-draw cluster bootstrap, seed 0) and its outputs are part of this repository. The full 2,000-response corpus (agent responses with all four scores and judge rationales) will be released alongside the paper in the same repository (github.com/Xiocasso/model-metrology, made public at submission).
 
 ## References
 
