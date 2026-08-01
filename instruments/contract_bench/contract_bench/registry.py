@@ -10,6 +10,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+DASHSCOPE_URL = (
+    "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
+)
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 MOONSHOT_URL = "https://api.moonshot.ai/v1/chat/completions"
 OPENAI_URL = "https://api.openai.com/v1/chat/completions"
@@ -57,6 +60,30 @@ _SPECS: list[ModelSpec] = [
         base_url=DEEPSEEK_URL,
         api_key_env="DEEPSEEK_API_KEY",
         notes="V4 flagship ($0.435/$0.87 per MTok); verified live 2026-08-01.",
+    ),
+    ModelSpec(
+        key="qwen-turbo",
+        provider="openai-compat",
+        model="qwen-turbo",
+        family="qwen",
+        stage="production",
+        base_url=DASHSCOPE_URL,
+        api_key_env="DASHSCOPE_API_KEY",
+        notes=(
+            "Cheapest tier ($0.05/$0.20). No pinned snapshot offered on the "
+            "intl endpoint — alias may silently update (retirement/drift risk "
+            "noted per Haiku-3.5 incident). Verified live 2026-08-01."
+        ),
+    ),
+    ModelSpec(
+        key="qwen-plus",
+        provider="openai-compat",
+        model="qwen-plus-2025-12-01",
+        family="qwen",
+        stage="production",
+        base_url=DASHSCOPE_URL,
+        api_key_env="DASHSCOPE_API_KEY",
+        notes="Pinned snapshot ($0.40/$1.20). Verified live 2026-08-01.",
     ),
     ModelSpec(
         key="gpt-4o-mini",
