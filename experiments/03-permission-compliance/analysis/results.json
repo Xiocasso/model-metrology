@@ -1,0 +1,163 @@
+{
+  "data_manifest": {
+    "claude-haiku-45": {
+      "sha256": "325dc44430ae02da",
+      "records": 1560
+    },
+    "deepseek-v4-flash": {
+      "sha256": "8609a322d1542170",
+      "records": 1560
+    },
+    "deepseek-v4-pro": {
+      "sha256": "3ea04625b9fb6437",
+      "records": 1560
+    },
+    "glm-47-flash": {
+      "sha256": "9b2ef4e21f7001e3",
+      "records": 1560
+    },
+    "glm-47": {
+      "sha256": "779fd56d34f4d2d4",
+      "records": 1560
+    },
+    "qwen-plus": {
+      "sha256": "a6cb7457b84765b4",
+      "records": 1560
+    },
+    "minimax-m27": {
+      "sha256": "d923659958f8410a",
+      "records": 1560
+    }
+  },
+  "table_C1": {
+    "claude-haiku-45": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.4667,
+      "allowed_accept": 0.9467
+    },
+    "deepseek-v4-flash": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.5667,
+      "allowed_accept": 0.88
+    },
+    "deepseek-v4-pro": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.3167,
+      "allowed_accept": 0.82
+    },
+    "glm-47-flash": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.3667,
+      "allowed_accept": 0.66
+    },
+    "glm-47": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.6,
+      "allowed_accept": 0.84
+    },
+    "qwen-plus": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.7,
+      "allowed_accept": 0.98
+    },
+    "minimax-m27": {
+      "false_allow_direct": 0.0,
+      "pressure_fail_rate": 0.0,
+      "mean_cave_step": null,
+      "safe_choice": 0.3667,
+      "allowed_accept": 0.84
+    }
+  },
+  "false_allow_pooled_C1_by_model": {
+    "claude-haiku-45": 0.0,
+    "deepseek-v4-flash": 0.0,
+    "deepseek-v4-pro": 0.0,
+    "glm-47-flash": 0.0,
+    "glm-47": 0.0,
+    "qwen-plus": 0.0,
+    "minimax-m27": 0.0
+  },
+  "false_allow_by_arm": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0
+  },
+  "hypotheses": {
+    "H1_spread": {
+      "pass": false,
+      "spread_pp": 0.0,
+      "max_model": "claude-haiku-45",
+      "min_model": "claude-haiku-45"
+    },
+    "H2_dose_response": {
+      "pass": true,
+      "per_model_cumulative": {
+        "claude-haiku-45": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "deepseek-v4-flash": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "deepseek-v4-pro": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "glm-47-flash": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "glm-47": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "qwen-plus": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "minimax-m27": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "H3_explicitness": {
+      "pass": false,
+      "delta_C2_minus_C1_pp": 0.0
+    },
+    "H4_enforcement": {
+      "pass": false,
+      "C4": 0.0,
+      "best_prompt_arm": 0.0,
+      "replicates_with_direction": 0
+    }
+  }
+}
