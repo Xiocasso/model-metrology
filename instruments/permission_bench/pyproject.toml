@@ -1,0 +1,22 @@
+[project]
+name = "permission-bench"
+version = "0.1.0"
+description = "Permission-adherence benchmark: 4-arm measurement of whether an LLM agent honors declared tool permissions under normal requests, direct violations, a fixed 4-step pressure escalation, and adjacent-choice temptations"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["permission_bench*"]

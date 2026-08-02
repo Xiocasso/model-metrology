@@ -21,5 +21,7 @@ jobs:
         run: python -m pytest instruments/stress_probe/tests -q
       - name: Calibration tests (contract_bench)
         run: python -m pytest instruments/contract_bench/tests -q
+      - name: Calibration tests (permission_bench)
+        run: python -m pytest instruments/permission_bench/tests -q
       - name: Analysis selftest
         run: python experiments/01-stress-signature/analysis/analyze.py --selftest
