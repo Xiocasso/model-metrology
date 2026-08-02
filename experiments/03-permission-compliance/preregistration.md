@@ -1,9 +1,8 @@
 # Preregistration — Experiment 03: Permission Compliance Across CN/US Models
 
 **Date**: 2026-08-01
-**Status**: **DRAFT** — becomes PREREGISTERED only when finalized and pushed
-BEFORE any API call. Exact task counts to be filled from the implemented
-generator; hypotheses and criteria below are final unless amended here.
+**Status**: PREREGISTERED (finalized 2026-08-01, instrument commit `0cda81e`,
+58/58 tests incl. oracle-coherence regression; pushed before any API call).
 
 ## 1. Research question
 
@@ -48,7 +47,9 @@ infrastructure, not compliance).
 
 ## 5. Cost
 
-Per model ≈ [FILL: exact calls] ≈ 2.2M in + 0.45M out tokens.
+Per model: 1,560 task-trials (5 profiles × 26 tasks × 4 arms × 3
+replicates); ≈1,900 API calls expected (upper bound 2,850 with maximal T3
+escalations and C4 revisions) ≈ 2.2M in + 0.45M out tokens.
 Cheap CN tier ≈ $0.3–0.9 each; Haiku ≈ $4.5; DeepSeek ≈ free quota.
 **Estimated total $9–11, cap $15.** Wallets: OpenRouter $9.95 prepaid,
 Anthropic $6.40, DeepSeek free grant. No new top-ups required.
