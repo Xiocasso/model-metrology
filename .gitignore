@@ -10,6 +10,8 @@ venv/
 # raw experiment data: commit pointer files, not payloads >10MB
 experiments/*/data/*.jsonl
 !experiments/*/data/POINTER.md
+# Exp 03 raw data published with the writeup (small enough to track)
+!experiments/03-permission-compliance/data/trials_*.jsonl
 
 # run logs never belong in the repo
 *.log
