@@ -73,3 +73,24 @@ Anthropic $6.40, DeepSeek free grant. No new top-ups required.
   four-step social-engineering pattern, not all pressure. Scope stated.
 - qwen-turbo-class no-snapshot aliases: all selected models pinned where the
   provider offers pins; alias-only models flagged in the registry.
+
+
+## Deviations (recorded 2026-08-02, after collection)
+
+This preregistration had no amendments during collection. Two deviations
+are recorded here after the fact, following the external review:
+
+- **D1 — per-cell validity rule not enforced.** §4 required any (model, arm)
+  cell losing >10% of trials to "fail pending top-up". Nine cells breached
+  it (deepseek-v4-pro 15.6–20.0% across all four arms; minimax-m27 up to
+  19.7%; deepseek-v4-flash up to 12.0%). No top-up was run. All affected
+  rates are reported under two conditionings in findings.md §4 rather than
+  being presented as if the rule had held.
+- **D2 — retry policy narrower than stated.** §4 says "unparseable-after-
+  retries excluded"; the runner retries API exceptions only, so parse
+  failures were excluded on first occurrence. This inflates exclusion counts
+  for verbose models and is the mechanism behind the GLM exclusions.
+
+Also noted: the experiment-specific analysis was written after collection
+(the instrument and its deterministic scoring were fixed before). The first
+writeup incorrectly described the analysis as frozen; see RETRACTION.md.

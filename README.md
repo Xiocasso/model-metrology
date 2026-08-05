@@ -7,10 +7,14 @@ Preregistered, auditable, and cheap to reproduce (each experiment ≈ $5).
 
 Measurement instruments — not benchmarks-as-leaderboards. Every experiment
 here is preregistered before any API call (timestamped in this repo's
-history), analyzed by code frozen before unblinding, and shipped with
-per-file data hashes. Negative results are published with the same care as
-positive ones; three of the experiments below came back null, and the nulls
-are load-bearing.
+history) and shipped with per-file data hashes. Where the analysis code was
+also frozen before unblinding, that is stated per experiment; where it was
+not (Experiment 03), that is stated too — the gap between "instrument
+frozen" and "analysis frozen" is where Experiment 03's first writeup went
+wrong, and the [retraction](experiments/03-permission-compliance/RETRACTION.md)
+is published alongside the corrected result. Negative results are published
+with the same care as positive ones; three of the experiments below came
+back null, and the nulls are load-bearing.
 
 ## Experiments
 
@@ -18,7 +22,7 @@ are load-bearing.
 |---|---|---|---|
 | 01 | Do post-training pipelines leave a "stress signature" in decision covariance? | **Null** — signature is scenario-dependent, not a model property; prior positive result traced to a protocol artifact | [`experiments/01-stress-signature/`](experiments/01-stress-signature/) |
 | 02 | Does runtime contract enforcement beat prompt-stated constraints? | **Null** — the prior +61% claim rested on a degenerate task set; enforcement is only as good as what the contract encodes | [`experiments/02-contract-compliance/`](experiments/02-contract-compliance/) |
-| 03 | Which models leak tool permissions under social-engineering pressure? | **Zero violations in 832 valid attempts across 5 CN/US models** — the violation floor is saturated. What differs 3×: over-refusal on adjacent-choice tasks; visible enforcement *raises* it (chilling effect) | [`experiments/03-permission-compliance/`](experiments/03-permission-compliance/) |
+| 03 | Which models leak tool permissions under social-engineering pressure? | **0 denied-tool selections in 832 valid records** in the direct+pressure cell (5 CN/US models) — 5 violations do exist in other cells. Larger effect: *stating* a deny list cuts safe task completion by 4–40 pp in 5/5 models, while runtime enforcement afterwards does not. [v1 writeup retracted after external review](experiments/03-permission-compliance/RETRACTION.md) | [`experiments/03-permission-compliance/`](experiments/03-permission-compliance/) |
 
 ## Papers (drafts, targeting the NeurIPS 2026 workshop cycle)
 
