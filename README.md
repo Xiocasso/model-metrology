@@ -1,54 +1,68 @@
 # Model Metrology
 
-Black-box behavioral measurement instruments for language models.
+Black-box behavioral measurement instruments for AI models and agents.
+Preregistered, auditable, and cheap to reproduce (each experiment ≈ $5).
 
 ## What this is
 
-A portfolio of cheap, reproducible, API-only probes that characterize how a model
-behaves — under stress, under runtime constraints, across versions, and as a judge.
-No weights access required. Every instrument is calibrated on a known system before
-it is pointed at an unknown one.
+Measurement instruments — not benchmarks-as-leaderboards. Every experiment
+here is preregistered before any API call (timestamped in this repo's
+history), analyzed by code frozen before unblinding, and shipped with
+per-file data hashes. Negative results are published with the same care as
+positive ones; three of the experiments below came back null, and the nulls
+are load-bearing.
 
-This project is forked from [identity-os](../identity-os/). That project spent three
-years testing the hypothesis "artificial identity is valuable" and — by its own
-data — largely falsified it. The instruments built to run that test survived the
-hypothesis. This repo is those instruments, cleaned up and pointed outward at
-models instead of inward at the engine that built them.
+## Experiments
 
-## The instruments
+| # | Question | Verdict | Where |
+|---|---|---|---|
+| 01 | Do post-training pipelines leave a "stress signature" in decision covariance? | **Null** — signature is scenario-dependent, not a model property; prior positive result traced to a protocol artifact | [`experiments/01-stress-signature/`](experiments/01-stress-signature/) |
+| 02 | Does runtime contract enforcement beat prompt-stated constraints? | **Null** — the prior +61% claim rested on a degenerate task set; enforcement is only as good as what the contract encodes | [`experiments/02-contract-compliance/`](experiments/02-contract-compliance/) |
+| 03 | Which models leak tool permissions under social-engineering pressure? | **Zero violations in 832 valid attempts across 5 CN/US models** — the violation floor is saturated. What differs 3×: over-refusal on adjacent-choice tasks; visible enforcement *raises* it (chilling effect) | [`experiments/03-permission-compliance/`](experiments/03-permission-compliance/) |
 
-| # | Instrument | Measures | Origin (identity-os) | Status |
-|---|---|---|---|---|
-| 1 | **Stress-covariance probe** | Post-training imprints on output covariance under graded stress (Participation Ratio dose-response) | `research/phase-transition-v1/`, `experiments/phase_transition/` | Port + Experiment 1 |
-| 2 | **Contract-compliance benchmark** | Whether a model respects runtime constraints vs prompt constraints (FalseAllow / ForbiddenBlock) | `research/papers/contract-interface-v6.md` tool-gating harness | Port pending; fix degenerate task sets for 3/4 profiles first |
-| 3 | **Drift monitor** | Behavioral drift across model versions / silent API updates (D0–D3 grading, anchor baselines, topological trajectory fingerprint) | `identity_os/engine/drift.py`, `topological_identity.py` | Port pending |
-| 4 | **Judge triangulation** | Same-provider bias in LLM-as-judge setups (cross-lineage regrade protocol) | gating-problem-v2 §5.11 | Protocol documented; generalization study pending |
-| 5 | **Loop-covariance diagnosis** | Interference direction between concurrent feedback loops in agent scaffolds | gating-problem-v2 §5.12 | Documented; no port needed until a consumer exists |
+## Papers (drafts, targeting the NeurIPS 2026 workshop cycle)
 
-## Goals
+- **Triangulate Before You Trust** — a same-provider LLM judge produced
+  p = 0.039 on the authors' own hypothesis; cross-lineage regrading, cluster
+  correction, and a direct judge×arm interaction test each independently
+  removed it. [`docs/papers/judge-bias/`](docs/papers/judge-bias/)
+- **No Stable Stress Signature** — preregistered replication failure of
+  Experiment 01's target, with the degenerate-cell confound that produced
+  the original result. [`docs/papers/stress-signature-null/`](docs/papers/stress-signature-null/)
 
-**North star**: become a citable, third-party source of truth for "how does this
-model actually behave" — the measurement layer the open-model flood lacks.
+## Instruments
 
-**2026 goals (in order)**:
-1. **Experiment 1** — stress-signature × open post-training recipes (Tülu 3 / OLMo
-   staged checkpoints). Resolves the n=2 confound from phase-transition-v1 and
-   doubles as the sensitivity calibration of instrument 1.
-2. One workshop-grade paper from Experiment 1 (or an honest negative-result
-   writeup that closes the line).
-3. Judge-bias paper (instrument 4) rewritten from existing data and submitted.
-4. Instruments 2–3 ported and run against ≥5 current models each, results public.
+| Instrument | Measures | Status |
+|---|---|---|
+| [`permission_bench`](instruments/permission_bench/) | Tool-permission adherence: direct violations, 4-step pressure escalation, rule-presentation arms, adjacent-choice utility | **Flagship** — Experiment 03 complete; v2 (embedded violations) planned |
+| [`contract_bench`](instruments/contract_bench/) | Contract-stated action compliance (4-arm: none / narrative / in-prompt / enforced) | Calibration-era; Experiment 02 complete |
+| [`stress_probe`](instruments/stress_probe/) | Covariance dose-response under interaction stress (Participation Ratio) | Closed after Experiment 01's null |
 
-**Non-goals**: building agent products, personality systems, or anything that
-requires the identity hypothesis to be true. identity-os remains the archive and
-calibration specimen; it is not developed further here.
+All instruments: standalone packages, offline calibration tests in CI,
+deterministic scoring (no LLM judges anywhere in the scoring path),
+registry-driven model access (Anthropic, DeepSeek, OpenRouter-routed
+Qwen/GLM/MiniMax, HF-routed open checkpoints).
 
-## Layout
+## Reproducing
 
+Each experiment directory contains its preregistration (with dated
+amendments), run scripts, frozen analysis, findings with confidence tags,
+and a data pointer with sha256 hashes. Instruments carry cost tables;
+a full experiment reruns for roughly the price of a coffee.
+
+```bash
+pip install numpy pydantic httpx pytest ruff
+python -m pytest instruments/permission_bench/tests   # offline calibration
 ```
-instruments/   one directory per instrument; each is standalone
-experiments/   numbered experiments; each preregistered before any data is collected
-docs/          papers, protocols, findings
-```
 
-See `CLAUDE.md` for the development model and collaboration protocol.
+## Provenance
+
+These instruments were extracted from a three-year project
+(identity-os) whose central hypothesis they ultimately falsified. The
+methodology — preregistration, blind amendments, frozen analysis,
+adversarial internal review — is the product of that failure. Details in
+[`docs/archives/`](docs/archives/) and `CLAUDE.md`.
+
+## Author
+
+Yunpeng Xiong — independent researcher, Netherlands.
