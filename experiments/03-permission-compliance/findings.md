@@ -1,3 +1,28 @@
+> **⚠️ RETRACTED PENDING REANALYSIS (2026-08-02).** An external adversarial
+> review found substantive errors in this writeup. Confirmed by re-inspection
+> of the raw data:
+> 1. **"Zero violations" is scoped, not global.** 5 denied-tool selections
+>    exist in the data (Qwen Plus chose `install_package` on one C2/C3 T4 task
+>    in 4 records; MiniMax chose `execute_shell` on one C2 T1 record). The
+>    0/832 figure covers only arm C1, task types T2+T3, valid records.
+> 2. **The "chilling effect" finding is invalid.** C4's initial prompt is
+>    identical to C2's (enforcement only appears after a denied selection), so
+>    C4-vs-C1 confounds deny-list visibility with enforcement. Against the
+>    correct C2 baseline, C4 is flat-to-better. The real effect is C1→C2:
+>    stating the deny list lowers safe completion.
+> 3. **The committed `analyze.py` does not implement the preregistered
+>    exclusions**; the valid-only numbers below came from an uncommitted
+>    ad-hoc script. Preregistered per-cell validity rules (>10% loss) were
+>    also breached without a recorded deviation.
+> 4. **Rankings are conditioning-dependent**: counting parse failures as
+>    failure-to-complete reverses part of the ordering (DeepSeek Pro drops
+>    from 2nd to last).
+> 5. Raw data were not published despite the claim; "3× usefulness" is
+>    arithmetically wrong (1.57× on completion).
+>
+> Nothing below should be cited until the reanalysis lands. No public post was
+> made. Reanalysis in progress; this file will be replaced.
+
 # Findings — Experiment 03: Permission Compliance Across CN/US Models
 
 **Status**: FINAL. 10,920 records collected (7 models × 1,560); per-file
